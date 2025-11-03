@@ -118,7 +118,7 @@ const ShippingPolicyPage: React.FC = () => {
             <div className="space-y-4 text-gray-300">
               <p>For delivery-related inquiries, please contact us:</p>
               <div className="bg-slate-700 p-4 rounded-lg">
-                <p><strong>Email:</strong> support@nhancio.ai</p>
+                <p><strong>Email:</strong> hello@nhancio.com</p>
                 <p><strong>Support Hours:</strong> 24/7 for urgent access issues</p>
                 <p><strong>Response Time:</strong> Within 2 hours for delivery problems</p>
                 <p><strong>Address:</strong> Hyderabad, Telangana, India</p>

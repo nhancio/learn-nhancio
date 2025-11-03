@@ -128,7 +128,7 @@ const RefundPolicyPage: React.FC = () => {
             <div className="space-y-4 text-gray-300">
               <p>If you have any questions about this refund policy, please contact us:</p>
               <div className="bg-slate-700 p-4 rounded-lg">
-                <p><strong>Email:</strong> support@nhancio.ai</p>
+                <p><strong>Email:</strong> hello@nhancio.com</p>
                 <p><strong>Address:</strong> Hyderabad, Telangana, India</p>
                 <p><strong>Response Time:</strong> Within 24-48 hours</p>
               </div>

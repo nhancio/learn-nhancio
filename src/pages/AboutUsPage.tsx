@@ -1,27 +1,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Heart, BookOpen, Award, TrendingUp, Users, Globe } from 'lucide-react';
+import { Target, Eye, Heart, BookOpen, Award, TrendingUp, Users, User } from 'lucide-react';
 
 const AboutUsPage: React.FC = () => {
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-12 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16 px-2"
         >
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Users className="w-8 h-8 text-white" />
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+            <Users className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
             A Dream by IITians to Build the Future with AI
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto">
             Founded by passionate IITians, Nhancio is democratizing AI education and making cutting-edge technology 
-            accessible to professionals worldwide, empowering them to transform their careers and secure their future in the digital age.
+            accessible to professionals, empowering them to transform their careers and secure their future in the digital age.
           </p>
         </motion.div>
 
@@ -170,7 +170,7 @@ const AboutUsPage: React.FC = () => {
 
               <div className="bg-white/10 p-6 rounded-lg text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Globe className="w-8 h-8 text-white" />
+                  <TrendingUp className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-white font-semibold text-lg mb-2">Impact</h3>
                 <p className="text-blue-100 text-sm">
@@ -182,31 +182,79 @@ const AboutUsPage: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Our Story */}
+        {/* Founder and Our Story Side by Side */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
           className="mb-16"
         >
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <div className="text-center mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="w-6 h-6 text-white" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {/* Founder Section */}
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 sm:p-8 rounded-lg border border-blue-500/20">
+              <div className="text-center mb-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <User className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Our Founder</h2>
               </div>
-              <h2 className="text-3xl font-bold text-white mb-4">Our Story</h2>
+              
+              <div className="bg-slate-700/50 p-4 sm:p-6 rounded-lg border border-blue-500/10">
+                <div className="flex flex-col items-center text-center mb-4">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
+                    <span className="text-white font-bold text-xl sm:text-2xl">DN</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Didigam Nithin</h3>
+                  <p className="text-blue-400 font-semibold mb-4">Founder & CEO</p>
+                </div>
+                <div className="space-y-3 text-gray-300 leading-relaxed text-sm sm:text-base">
+                  <p>
+                    Didigam Nithin is the visionary founder of Learn.Nhancio, bringing a unique combination of 
+                    academic excellence and real-world industry experience. An alumnus of IIT Kanpur, one 
+                    of India's premier engineering institutions, Nithin has established himself as a 
+                    leading expert in Data Science and Artificial Intelligence.
+                  </p>
+                  <p>
+                    With approximately 4 years of hands-on experience in Data Science and AI, Nithin has 
+                    worked on cutting-edge projects that have transformed businesses and solved complex 
+                    challenges.
+                  </p>
+                  <div className="mt-4 pt-4 border-t border-blue-500/20">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-xs sm:text-sm text-gray-400">Education</p>
+                        <p className="text-white font-semibold text-sm sm:text-base">IIT Kanpur</p>
+                      </div>
+                      <div>
+                        <p className="text-xs sm:text-sm text-gray-400">Experience</p>
+                        <p className="text-white font-semibold text-sm sm:text-base">~4 years in Data Science & AI</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            
-            <div className="max-w-4xl mx-auto">
-              <div className="space-y-6 text-gray-300 leading-relaxed">
+
+            {/* Our Story */}
+            <div className="bg-slate-800 p-6 sm:p-8 rounded-lg border border-blue-500/20">
+              <div className="text-center mb-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Our Story</h2>
+              </div>
+              
+              <div className="space-y-4 sm:space-y-6 text-gray-300 leading-relaxed text-sm sm:text-base">
                 <p>
-                  Founded in 2024 by a group of passionate IITians, Nhancio emerged from a shared vision 
-                  to bridge the gap between cutting-edge AI research and practical career applications.
+                  Founded in 2024 by Didigam Nithin, an IIT Kanpur alumnus with extensive experience in Data 
+                  Science and AI, Learn.Nhancio emerged from a vision to bridge the gap between cutting-edge AI research 
+                  and practical career applications.
                 </p>
                 
                 <p>
-                  What started as late-night discussions in our hostel rooms about the potential of AI 
-                  to transform careers has evolved into a thriving education platform that serves professionals across the globe.
+                  What started as a passion project to make AI education accessible and practical has evolved 
+                  into a thriving education platform that empowers professionals to transform their careers through 
+                  intelligent technology and hands-on learning.
                 </p>
                 
                 <p>
@@ -276,7 +324,7 @@ const AboutUsPage: React.FC = () => {
               </div>
               <h3 className="text-white font-semibold mb-2">Rapid Growth</h3>
               <p className="text-gray-300 text-sm">
-                Fastest growing AI startup in Hyderabad with expanding global presence
+                Fastest growing AI startup in Hyderabad with a mission to transform careers through practical education
               </p>
             </div>
           </div>

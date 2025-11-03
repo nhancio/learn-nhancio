@@ -42,7 +42,7 @@ const plans = [
   },
   {
     name: "Premium",
-    price: 699,
+    price: 499,
     originalPrice: 999,
     popular: false,
     description: "Ultimate package with personal career coaching",

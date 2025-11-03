@@ -34,22 +34,22 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-slate-900 border-t border-blue-500/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
+          <div className="col-span-1 sm:col-span-2">
+            <div className="flex items-center space-x-2 mb-3 sm:mb-4">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">N</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                NhancioLearning
+              <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                Learn.Nhancio
               </span>
             </div>
-            <p className="text-gray-400 mb-4 max-w-md">
+            <p className="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base max-w-md">
               Empowering future leaders in AI & Technology. Join our community of learners and innovators.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 sm:space-x-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -67,30 +67,30 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors duration-200">
+                <Link to="/" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm sm:text-base">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/courses" className="text-gray-400 hover:text-white transition-colors duration-200">
+                <Link to="/courses" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm sm:text-base">
                   Courses
                 </Link>
               </li>
               <li>
-                <Link to="/community" className="text-gray-400 hover:text-white transition-colors duration-200">
+                <Link to="/community" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm sm:text-base">
                   Community
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors duration-200">
+                <Link to="/about" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm sm:text-base">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contactus" className="text-gray-400 hover:text-white transition-colors duration-200">
+                <Link to="/contactus" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm sm:text-base">
                   Contact Us
                 </Link>
               </li>
@@ -99,21 +99,16 @@ const Footer: React.FC = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
+            <h3 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Contact</h3>
             <ul className="space-y-2">
               <li>
-                <a href="mailto:hello@nhancio.ai" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  hello@nhancio.ai
+                <a href="mailto:hello@nhancio.com" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm sm:text-base break-all">
+                  hello@nhancio.com
                 </a>
               </li>
               <li>
-                <span className="text-gray-400">
+                <span className="text-gray-400 text-sm sm:text-base">
                   Hyderabad, Telangana
-                </span>
-              </li>
-              <li>
-                <span className="text-gray-400">
-                  IITians-based Startup
                 </span>
               </li>
             </ul>
@@ -121,24 +116,24 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-blue-500/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 text-sm">
-            © 2024 NhancioLearning. All rights reserved.
+        <div className="border-t border-blue-500/20 mt-6 sm:mt-8 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+            © 2024 Learn.Nhancio. All rights reserved.
           </div>
-                              <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
-                      <Link to="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                              <div className="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-end">
+                      <Link to="/privacy" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors duration-200">
                         Privacy Policy
                       </Link>
-                      <Link to="/refund" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                      <Link to="/refund" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors duration-200">
                         Refund Policy
                       </Link>
-                      <Link to="/pricing" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                      <Link to="/pricing" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors duration-200">
                         Pricing Policy
                       </Link>
-                      <Link to="/shipping" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                      <Link to="/shipping" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors duration-200">
                         Shipping Policy
                       </Link>
-                      <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                      <Link to="/terms" className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors duration-200">
                         Terms of Service
                       </Link>
                     </div>

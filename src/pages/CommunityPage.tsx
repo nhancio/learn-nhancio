@@ -11,21 +11,18 @@ const CommunityPage: React.FC = () => {
       url: 'https://www.linkedin.com/company/nhancio',
       icon: 'linkedin',
       color: 'from-blue-600 to-blue-700',
-      followers: '1,146'
     },
     {
       name: 'Instagram',
       url: 'https://www.instagram.com/nhancio.ai/',
       icon: 'instagram',
-      color: 'from-pink-500 to-purple-600',
-      followers: '2.5K'
+      color: 'from-pink-500 to-purple-600'
     },
     {
       name: 'YouTube',
       url: 'https://www.youtube.com/@nhancioai',
       icon: 'youtube',
-      color: 'from-red-500 to-red-600',
-      followers: '5.2K'
+      color: 'from-red-500 to-red-600'
     }
   ];
 
@@ -111,19 +108,19 @@ const CommunityPage: React.FC = () => {
               }, [communityPhotos.length]);
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-12 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16 px-2"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
             Join Our Community
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto">
             Connect with fellow AI enthusiasts, share knowledge, and stay updated with the latest in technology
           </p>
         </motion.div>
@@ -133,15 +130,15 @@ const CommunityPage: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-16"
         >
           {communityStats.map((stat, index) => (
             <div key={stat.label} className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="w-8 h-8 text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
-              <div className="text-2xl font-bold text-white mb-2">{stat.value}</div>
-              <div className="text-gray-400">{stat.label}</div>
+              <div className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">{stat.value}</div>
+              <div className="text-gray-400 text-xs sm:text-sm">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -184,7 +181,6 @@ const CommunityPage: React.FC = () => {
                     )}
                   </div>
                   <div className="text-white font-bold text-xl mb-2">{social.name}</div>
-                  <div className="text-white/80 mb-2">{social.followers} followers</div>
                   <div className="flex items-center justify-center space-x-2 text-white/60 group-hover:text-white transition-colors">
                     <span>Follow us</span>
                     <ExternalLink className="w-4 h-4" />
@@ -255,15 +251,15 @@ const CommunityPage: React.FC = () => {
                         {/* Navigation Buttons */}
                         <button
                           onClick={prevPhoto}
-                          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-200 shadow-lg hover:scale-110"
+                          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 sm:p-3 rounded-full transition-all duration-200 shadow-lg hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
                         >
-                          <ChevronLeft className="w-6 h-6" />
+                          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
                         <button
                           onClick={nextPhoto}
-                          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-200 shadow-lg hover:scale-110"
+                          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 sm:p-3 rounded-full transition-all duration-200 shadow-lg hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
                         >
-                          <ChevronRight className="w-6 h-6" />
+                          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
 
                         {/* Dots Indicator */}

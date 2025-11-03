@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Clock, Users, CheckCircle, Play, Download, Share2 } from 'lucide-react';
+import PaymentSuccessModal from '../components/PaymentSuccessModal';
+import PaymentErrorModal from '../components/PaymentErrorModal';
+
+// Declare Razorpay types
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
 
 const CourseDetailPage: React.FC = () => {
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
   const course = {
     id: 1,
     title: 'AI upskill Workshop',
     description: 'Master the fundamentals of AI and build real-world applications that will transform your career. This comprehensive workshop covers everything from basic concepts to advanced implementations.',
     duration: '7 Days',
     price: '₹499',
+    originalPrice: '₹999',
     rating: 4.9,
     students: 10000,
     level: 'All Levels',
@@ -18,7 +33,7 @@ const CourseDetailPage: React.FC = () => {
       'Hands-on Projects with Real Data',
       'Expert Mentorship from Industry Leaders',
       'Professional Certificate upon Completion',
-      'Lifetime Access to Course Materials',
+      'Lifetime Access to Workshop Materials',
       'Active Community Support',
       'Job Placement Assistance'
     ],
@@ -74,10 +89,112 @@ const CourseDetailPage: React.FC = () => {
     ]
   };
 
+  // Load Razorpay script
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+  const handlePayment = async () => {
+    setIsProcessingPayment(true);
+    
+    // In production, you would make an API call to your backend to create an order
+    // For now, using a mock implementation
+    const amount = 49900; // ₹499 in paise
+    const currency = 'INR';
+
+    // Get Razorpay key from environment variables
+    const razorpayKey = import.meta.env.VITE_RAZORPAY_KEY_ID;
+    
+    // Debug: Log environment variable (remove in production)
+    console.log('Razorpay Key Check:', {
+      hasKey: !!razorpayKey,
+      keyLength: razorpayKey?.length || 0,
+      envKeys: Object.keys(import.meta.env).filter(k => k.includes('RAZOR'))
+    });
+    
+    // Use fallback test key if not configured (for development/testing only)
+    // For production, always use the key from .env file
+    const finalKey = razorpayKey || 'rzp_test_1DP5mmOlF5G5ag';
+    
+    if (!razorpayKey) {
+      console.warn('⚠️ Razorpay key not found in .env. Using fallback test key for development.');
+      console.warn('Please add VITE_RAZORPAY_KEY_ID=your_key_here to your .env file');
+    } else {
+      console.log('✅ Razorpay key loaded successfully');
+    }
+
+    const options = {
+      key: finalKey,
+      amount: amount,
+      currency: currency,
+      name: 'Learn.Nhancio',
+      description: `Payment for ${course.title}`,
+      image: '/logos/Nhancio-logo.png',
+      order_id: undefined, // Will be set by backend
+      handler: function (response: any) {
+        // Handle successful payment
+        console.log('Payment successful:', response);
+        setIsProcessingPayment(false);
+        setShowSuccessModal(true);
+      },
+      prefill: {
+        name: '',
+        email: '',
+        contact: '',
+      },
+      notes: {
+        address: 'Learn.Nhancio Workshop Purchase',
+      },
+      theme: {
+        color: '#3b82f6',
+      },
+      modal: {
+        ondismiss: function() {
+          setIsProcessingPayment(false);
+        },
+      },
+    };
+
+    try {
+      // Check if Razorpay is loaded
+      if (window.Razorpay) {
+        console.log('Opening Razorpay checkout...');
+        const razorpay = new window.Razorpay(options);
+        razorpay.on('payment.failed', function (response: any) {
+          console.error('Payment failed:', response.error);
+          const errorMsg = response.error?.description || response.error?.reason || 'Payment could not be processed. Please try again.';
+          setErrorMessage(errorMsg);
+          setIsProcessingPayment(false);
+          setShowErrorModal(true);
+        });
+        razorpay.open();
+      } else {
+        console.error('Razorpay SDK not loaded. Waiting for script to load...');
+        alert('Payment gateway is loading. Please wait a moment and try again.');
+        setIsProcessingPayment(false);
+      }
+    } catch (error) {
+      console.error('Payment error:', error);
+      const errorMsg = error instanceof Error ? error.message : 'An unexpected error occurred. Please try again.';
+      setErrorMessage(errorMsg);
+      setIsProcessingPayment(false);
+      setShowErrorModal(true);
+    }
+  };
+
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Course Header */}
+        {/* Workshop Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -85,7 +202,7 @@ const CourseDetailPage: React.FC = () => {
           className="mb-12"
         >
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Course Info */}
+            {/* Workshop Info */}
             <div className="lg:col-span-2">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 {course.title}
@@ -94,7 +211,7 @@ const CourseDetailPage: React.FC = () => {
                 {course.description}
               </p>
               
-              {/* Course Stats */}
+              {/* Workshop Stats */}
               <div className="flex flex-wrap items-center gap-6 mb-6">
                 <div className="flex items-center space-x-2">
                   <Star className="w-5 h-5 text-yellow-400 fill-current" />
@@ -123,27 +240,41 @@ const CourseDetailPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Course Card */}
+            {/* Workshop Card */}
             <div className="lg:col-span-1">
               <div className="bg-slate-800 rounded-lg p-6 border border-blue-500/20 sticky top-24">
                 <div className="text-center mb-6">
+                  <div className="text-sm text-gray-400 line-through mb-1">{course.originalPrice}</div>
                   <div className="text-3xl font-bold text-white mb-2">{course.price}</div>
                   <div className="text-gray-400">One-time payment</div>
                 </div>
 
-                <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 mb-4 flex items-center justify-center space-x-2">
-                  <Play className="w-5 h-5" />
-                  <span>Join Now</span>
+                <button
+                  onClick={handlePayment}
+                  disabled={isProcessingPayment}
+                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 sm:py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 mb-3 sm:mb-4 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isProcessingPayment ? (
+                    <>
+                      <span className="animate-spin">⏳</span>
+                      <span>Processing...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Play className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>Buy Now - ₹499</span>
+                    </>
+                  )}
                 </button>
 
-                <button className="w-full bg-slate-700 text-white py-3 rounded-lg font-semibold hover:bg-slate-600 transition-all duration-200 mb-4 flex items-center justify-center space-x-2">
-                  <Download className="w-5 h-5" />
+                <button className="w-full bg-slate-700 text-white py-3 rounded-lg font-semibold hover:bg-slate-600 transition-all duration-200 mb-3 sm:mb-4 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base">
+                  <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Download Syllabus</span>
                 </button>
 
-                <button className="w-full bg-slate-700 text-white py-3 rounded-lg font-semibold hover:bg-slate-600 transition-all duration-200 flex items-center justify-center space-x-2">
-                  <Share2 className="w-5 h-5" />
-                  <span>Share Course</span>
+                <button className="w-full bg-slate-700 text-white py-3 rounded-lg font-semibold hover:bg-slate-600 transition-all duration-200 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base">
+                  <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>Share Workshop</span>
                 </button>
 
                 <div className="mt-6 pt-6 border-t border-blue-500/20">
@@ -162,7 +293,7 @@ const CourseDetailPage: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Course Content */}
+        {/* Workshop Content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -171,7 +302,7 @@ const CourseDetailPage: React.FC = () => {
         >
           <h2 className="text-3xl font-bold text-white mb-8">Workshop Curriculum</h2>
           <div className="space-y-4">
-            {course.curriculum.map((week, index) => (
+            {course.curriculum.map((week) => (
               <div key={week.week} className="bg-slate-800 rounded-lg p-6 border border-blue-500/20">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-semibold text-white">
@@ -200,8 +331,8 @@ const CourseDetailPage: React.FC = () => {
         >
           <h2 className="text-3xl font-bold text-white mb-8">Student Reviews</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {course.reviews.map((review) => (
-              <div key={review.id} className="bg-slate-800 p-6 rounded-lg border border-blue-500/20">
+            {course.reviews.map((review, reviewIndex) => (
+              <div key={review.id || reviewIndex} className="bg-slate-800 p-6 rounded-lg border border-blue-500/20">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-2">
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
@@ -238,13 +369,39 @@ const CourseDetailPage: React.FC = () => {
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Join thousands of professionals who have already upgraded their skills with our AI upskill workshop.
             </p>
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center space-x-2">
-              <Play className="w-5 h-5" />
-              <span>Join Now - ₹499</span>
+            <button
+              onClick={handlePayment}
+              disabled={isProcessingPayment}
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isProcessingPayment ? (
+                <>
+                  <span className="animate-spin">⏳</span>
+                  <span>Processing Payment...</span>
+                </>
+              ) : (
+                <>
+                  <Play className="w-5 h-5" />
+                  <span>Buy Now - ₹499</span>
+                </>
+              )}
             </button>
           </div>
         </motion.div>
       </div>
+
+      {/* Payment Success Modal */}
+      <PaymentSuccessModal 
+        isOpen={showSuccessModal} 
+        onClose={() => setShowSuccessModal(false)} 
+      />
+
+      {/* Payment Error Modal */}
+      <PaymentErrorModal 
+        isOpen={showErrorModal} 
+        onClose={() => setShowErrorModal(false)}
+        errorMessage={errorMessage}
+      />
     </div>
   );
 };

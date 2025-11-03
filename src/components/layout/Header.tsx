@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, User, LogOut } from 'lucide-react';
-import { useAuth } from '../../contexts/AuthContext';
+import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { user, isAuthenticated, logout } = useAuth();
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -15,23 +13,20 @@ const Header: React.FC = () => {
     { name: 'About Us', href: '/about' },
   ];
 
-  const handleLogout = () => {
-    logout();
-    setIsMobileMenuOpen(false);
-  };
-
 
   return (
     <header className="bg-slate-900/80 backdrop-blur-md border-b border-blue-500/20 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">N</span>
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-              NhancioLearning
+          <Link to="/" className="flex items-center space-x-1 sm:space-x-2">
+            <img 
+              src="/logos/Nhancio-logo.png" 
+              alt="Nhancio Logo" 
+              className="h-8 w-auto sm:h-10"
+            />
+            <span className="text-base sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent hidden sm:inline">
+              Learn.Nhancio
             </span>
           </Link>
 
@@ -48,32 +43,6 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Desktop Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            {isAuthenticated ? (
-              <div className="flex items-center space-x-4">
-                <Link
-                  to="/dashboard"
-                  className="text-gray-300 hover:text-white transition-colors duration-200"
-                >
-                  Dashboard
-                </Link>
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <User className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-gray-300">{user?.name}</span>
-                </div>
-                <button
-                  onClick={handleLogout}
-                  className="text-gray-300 hover:text-white transition-colors duration-200"
-                  title="Logout"
-                >
-                  <LogOut className="w-5 h-5" />
-                </button>
-              </div>
-            ) : null}
-          </div>
 
           {/* Mobile menu button */}
           <button
@@ -93,44 +62,19 @@ const Header: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-slate-900 border-t border-blue-500/20"
+            className="md:hidden bg-slate-900 border-t border-blue-500/20 max-h-[80vh] overflow-y-auto"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-4 py-4 space-y-2">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2"
+                  className="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-3 px-2 rounded-lg hover:bg-slate-800"
                 >
                   {item.name}
                 </Link>
               ))}
-              
-              {isAuthenticated ? (
-                <div className="space-y-4 pt-4 border-t border-blue-500/20">
-                  <Link
-                    to="/dashboard"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2"
-                  >
-                    Dashboard
-                  </Link>
-                  <div className="flex items-center space-x-2 py-2">
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                      <User className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-gray-300">{user?.name}</span>
-                  </div>
-                  <button
-                    onClick={handleLogout}
-                    className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200 font-medium py-2"
-                  >
-                    <LogOut className="w-5 h-5" />
-                    <span>Logout</span>
-                  </button>
-                </div>
-              ) : null}
             </div>
           </motion.div>
         )}

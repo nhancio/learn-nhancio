@@ -4,22 +4,22 @@ import { DollarSign, CreditCard, Shield, Info } from 'lucide-react';
 
 const PricingPolicyPage: React.FC = () => {
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-12 sm:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16 px-2"
         >
-          <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <DollarSign className="w-8 h-8 text-white" />
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+            <DollarSign className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
             Pricing Policy
           </h1>
-          <p className="text-xl text-gray-400">
+          <p className="text-base sm:text-xl text-gray-400">
             Last updated: January 2024
           </p>
         </motion.div>
@@ -31,9 +31,9 @@ const PricingPolicyPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="space-y-8"
         >
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">1. Course Pricing</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-slate-800 p-4 sm:p-8 rounded-lg border border-blue-500/20">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">1. Course Pricing</h2>
+            <div className="space-y-3 sm:space-y-4 text-gray-300 text-sm sm:text-base">
               <p>Our pricing is transparent and designed to provide maximum value for your investment in education:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>AI upskill Workshop:</strong> ₹499 (one-time payment)</li>
@@ -48,15 +48,15 @@ const PricingPolicyPage: React.FC = () => {
           <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
             <h2 className="text-2xl font-bold text-white mb-4">2. Payment Methods</h2>
             <div className="space-y-4 text-gray-300">
-              <p>We accept the following payment methods:</p>
+              <p>We accept the following payment methods through Razorpay:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>Credit/Debit Cards (Visa, MasterCard, American Express)</li>
-                <li>Digital Wallets (PayPal, Google Pay, PhonePe)</li>
+                <li>Credit/Debit Cards (Visa, MasterCard, American Express, RuPay)</li>
+                <li>Digital Wallets (Google Pay, PhonePe, Paytm, BHIM UPI)</li>
                 <li>UPI Payments</li>
-                <li>Net Banking</li>
-                <li>EMI options available through our payment partners</li>
+                <li>Net Banking (All major banks)</li>
+                <li>EMI options available through Razorpay</li>
               </ul>
-              <p>All payments are processed securely through trusted payment gateways.</p>
+              <p>All payments are processed securely through Razorpay, India's leading payment gateway.</p>
             </div>
           </div>
 
@@ -108,7 +108,7 @@ const PricingPolicyPage: React.FC = () => {
             <div className="space-y-4 text-gray-300">
               <p>If you have any questions about our pricing, please contact us:</p>
               <div className="bg-slate-700 p-4 rounded-lg">
-                <p><strong>Email:</strong> pricing@nhancio.ai</p>
+                <p><strong>Email:</strong> hello@nhancio.com</p>
                 <p><strong>Address:</strong> Hyderabad, Telangana, India</p>
                 <p><strong>Response Time:</strong> Within 24 hours</p>
               </div>

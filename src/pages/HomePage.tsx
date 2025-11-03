@@ -9,8 +9,8 @@ const HomePage: React.FC = () => {
     title: 'AI upskill Workshop',
     description: 'Master the fundamentals of AI and build real-world applications that will transform your career',
     duration: '7 Days',
-          price: '₹0',
-    originalPrice: '₹499',
+    price: '₹499',
+    originalPrice: '₹999',
     features: ['Hands-on Projects', 'Expert Mentorship', 'Certificate', 'Lifetime Access'],
     image: '/api/placeholder/400/250'
   };
@@ -58,20 +58,20 @@ const HomePage: React.FC = () => {
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-8"
+            className="mb-6 sm:mb-8"
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2">
               Stay ahead in the{' '}
               <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                 AI-First World
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-base sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
               Build hands-on capabilities that translate directly into workplace advantage & tangible outcomes.
             </p>
           </motion.div>
@@ -84,10 +84,10 @@ const HomePage: React.FC = () => {
           >
             <Link
               to="/courses"
-              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-blue-500/25 flex items-center space-x-2"
+              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-blue-500/25 flex items-center space-x-2 min-h-[44px]"
             >
-              <span>Limited Slots Available</span>
-              <ArrowRight className="w-5 h-5" />
+              <span className="text-sm sm:text-base">Limited Slots Available</span>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </motion.div>
 
@@ -96,38 +96,38 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* How AI Transforms Careers */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-12 sm:py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-16"
           >
-            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-              <TrendingUp className="w-8 h-8 text-white" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+              <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4 px-2">
               How AI Transforms Your Career Future
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto px-2">
               AI isn't just changing industries—it's revolutionizing how we work, learn, and advance in our careers. 
               Here's how mastering AI can reshape your professional journey.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-lg"
+              className="bg-gradient-to-br from-blue-600 to-blue-800 p-4 sm:p-6 rounded-lg"
             >
-              <div className="text-3xl mb-4">🚀</div>
-              <h3 className="text-white font-semibold text-lg mb-3">Accelerated Career Growth</h3>
-              <p className="text-blue-100 text-sm">
+              <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">🚀</div>
+              <h3 className="text-white font-semibold text-base sm:text-lg mb-2 sm:mb-3">Accelerated Career Growth</h3>
+              <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
                 AI skills can accelerate your career progression by 3-5 years. Professionals with AI expertise 
                 are being promoted faster and earning 40-60% higher salaries than their peers.
               </p>
@@ -249,7 +249,7 @@ const HomePage: React.FC = () => {
                         <div className="relative">
                           <img 
                             src="/certificates/certificate.jpg" 
-                            alt="NhancioLearning Certificate Sample"
+                            alt="Learn.Nhancio Certificate Sample"
                             className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white"
                           />
                         </div>
@@ -267,7 +267,7 @@ const HomePage: React.FC = () => {
                   Industry-Recognized Certification
                 </h3>
                 <p className="text-gray-300 text-lg mb-6">
-                  Receive a professional certificate from NhancioLearning, an IITians-based startup, 
+                  Receive a professional certificate from Learn.Nhancio, 
                   recognized by leading tech companies and startups worldwide.
                 </p>
               </div>
@@ -369,12 +369,15 @@ const HomePage: React.FC = () => {
 
                 {/* CTA Button */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 text-lg flex items-center justify-center space-x-2">
+                  <Link
+                    to="/courses"
+                    className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 text-lg flex items-center justify-center space-x-2"
+                  >
                     <Play className="w-5 h-5" />
                     <span>Join Now</span>
-                  </button>
+                  </Link>
                   <Link
-                    to={`/courses/${featuredCourse.id}`}
+                    to="/courses"
                     className="flex-1 bg-slate-700 text-white py-4 rounded-lg font-semibold hover:bg-slate-600 transition-all duration-200 text-center text-lg"
                   >
                     Learn More
@@ -412,8 +415,13 @@ const HomePage: React.FC = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/20 h-80 rounded-lg overflow-hidden border border-blue-500/20 group-hover:border-blue-500/40 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="h-80 rounded-lg overflow-hidden border border-blue-500/20 group-hover:border-blue-500/40 transition-all duration-300">
+                <img 
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop" 
+                  alt="AI Workshop Session"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-white font-semibold text-lg mb-2">AI Workshop Session</h3>
                   <p className="text-gray-300 text-sm">Students collaborating on real-world AI projects</p>
@@ -431,8 +439,13 @@ const HomePage: React.FC = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 h-80 rounded-lg overflow-hidden border border-purple-500/20 group-hover:border-purple-500/40 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="h-80 rounded-lg overflow-hidden border border-purple-500/20 group-hover:border-purple-500/40 transition-all duration-300">
+                <img 
+                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop" 
+                  alt="Certificate Ceremony"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-white font-semibold text-lg mb-2">Certificate Ceremony</h3>
                   <p className="text-gray-300 text-sm">Celebrating student achievements and success</p>
@@ -450,8 +463,13 @@ const HomePage: React.FC = () => {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-gradient-to-br from-green-500/20 to-green-600/20 h-80 rounded-lg overflow-hidden border border-green-500/20 group-hover:border-green-500/40 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="h-80 rounded-lg overflow-hidden border border-green-500/20 group-hover:border-green-500/40 transition-all duration-300">
+                <img 
+                  src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop" 
+                  alt="Community Meetup"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-white font-semibold text-lg mb-2">Community Meetup</h3>
                   <p className="text-gray-300 text-sm">Networking and knowledge sharing events</p>
@@ -529,10 +547,13 @@ const HomePage: React.FC = () => {
             <p className="text-xl text-blue-100 mb-8">
               Join the AI revolution and stay ahead of the curve
             </p>
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center space-x-2">
+            <Link
+              to="/courses"
+              className="bg-white text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center space-x-2 min-h-[44px]"
+            >
               <span>Join Now</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+            </Link>
           </motion.div>
         </div>
       </section>

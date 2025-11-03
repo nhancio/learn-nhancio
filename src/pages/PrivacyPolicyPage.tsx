@@ -120,7 +120,7 @@ const PrivacyPolicyPage: React.FC = () => {
             <div className="space-y-4 text-gray-300">
               <p>If you have any questions about this Privacy Policy, please contact us at:</p>
               <div className="bg-slate-700 p-4 rounded-lg">
-                <p><strong>Email:</strong> privacy@nhancio.ai</p>
+                <p><strong>Email:</strong> hello@nhancio.com</p>
                 <p><strong>Address:</strong> Hyderabad, Telangana, India</p>
               </div>
             </div>

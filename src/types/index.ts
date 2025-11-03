@@ -5,6 +5,9 @@ export interface User {
   role: 'user' | 'admin';
   avatar?: string;
   phone?: string;
+  college?: string;
+  year_of_study?: string;
+  branch?: string;
   is_verified: boolean;
   created_at: string;
   updated_at: string;
@@ -117,7 +120,10 @@ export interface SignupData {
   name: string;
   email: string;
   password: string;
-  phone?: string;
+  phone: string;
+  college: string;
+  yearOfStudy: string;
+  branch: string;
 }
 
 export interface CertificateRequest {
