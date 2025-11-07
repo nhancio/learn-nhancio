@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Heart, BookOpen, Award, TrendingUp, Users, User } from 'lucide-react';
+import { Heart, BookOpen, Award, TrendingUp, Users, User, Target } from 'lucide-react';
 
 const AboutUsPage: React.FC = () => {
   return (
@@ -45,7 +45,7 @@ const AboutUsPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-2xl shadow-lg"
+              className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-3xl shadow-lg"
             >
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -63,7 +63,7 @@ const AboutUsPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl shadow-lg"
+              className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-3xl shadow-lg"
             >
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -81,7 +81,7 @@ const AboutUsPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl shadow-lg"
+              className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-3xl shadow-lg"
             >
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -96,35 +96,6 @@ const AboutUsPage: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Mission & Vision */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
-        >
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-6">
-              <Target className="w-6 h-6 text-white" />
-            </div>
-            <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
-            <p className="text-gray-300 leading-relaxed">
-              To democratize AI education and make cutting-edge technology accessible to professionals of all backgrounds, 
-              empowering them to transform their careers and secure their future in the digital age.
-            </p>
-          </div>
-
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-6">
-              <Eye className="w-6 h-6 text-white" />
-            </div>
-            <h2 className="text-2xl font-bold text-white mb-4">Our Vision</h2>
-            <p className="text-gray-300 leading-relaxed">
-              To be the leading AI education platform that transforms how professionals build their careers, making 
-              AI skills and intelligent automation the foundation of future success.
-            </p>
-          </div>
-        </motion.div>
 
         {/* Our Values */}
         <motion.div
@@ -133,7 +104,7 @@ const AboutUsPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mb-16"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-8 rounded-lg">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-8 rounded-2xl">
             <div className="text-center mb-8">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-6 h-6 text-white" />
@@ -146,7 +117,7 @@ const AboutUsPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/10 p-6 rounded-lg text-center">
+              <div className="bg-white/10 p-6 rounded-xl text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="w-8 h-8 text-white" />
                 </div>
@@ -157,7 +128,7 @@ const AboutUsPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-white/10 p-6 rounded-lg text-center">
+              <div className="bg-white/10 p-6 rounded-xl text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award className="w-8 h-8 text-white" />
                 </div>
@@ -168,7 +139,7 @@ const AboutUsPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-white/10 p-6 rounded-lg text-center">
+              <div className="bg-white/10 p-6 rounded-xl text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
@@ -191,7 +162,7 @@ const AboutUsPage: React.FC = () => {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {/* Founder Section */}
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 sm:p-8 rounded-lg border border-blue-500/20">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 sm:p-8 rounded-2xl border border-blue-500/20">
               <div className="text-center mb-6">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <User className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
@@ -199,7 +170,7 @@ const AboutUsPage: React.FC = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Our Founder</h2>
               </div>
               
-              <div className="bg-slate-700/50 p-4 sm:p-6 rounded-lg border border-blue-500/10">
+              <div className="bg-slate-700/50 p-4 sm:p-6 rounded-xl border border-blue-500/10">
                 <div className="flex flex-col items-center text-center mb-4">
                   <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
                     <span className="text-white font-bold text-xl sm:text-2xl">DN</span>
@@ -236,7 +207,7 @@ const AboutUsPage: React.FC = () => {
             </div>
 
             {/* Our Story */}
-            <div className="bg-slate-800 p-6 sm:p-8 rounded-lg border border-blue-500/20">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 sm:p-8 rounded-2xl border border-blue-500/20">
               <div className="text-center mb-6">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
@@ -244,28 +215,30 @@ const AboutUsPage: React.FC = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Our Story</h2>
               </div>
               
-              <div className="space-y-4 sm:space-y-6 text-gray-300 leading-relaxed text-sm sm:text-base">
-                <p>
-                  Founded in 2024 by Didigam Nithin, an IIT Kanpur alumnus with extensive experience in Data 
-                  Science and AI, Learn.Nhancio emerged from a vision to bridge the gap between cutting-edge AI research 
-                  and practical career applications.
-                </p>
-                
-                <p>
-                  What started as a passion project to make AI education accessible and practical has evolved 
-                  into a thriving education platform that empowers professionals to transform their careers through 
-                  intelligent technology and hands-on learning.
-                </p>
-                
-                <p>
-                  Today, we're proud to be at the forefront of AI education, helping professionals transform 
-                  their careers and unlock new opportunities through intelligent technology and practical skills.
-                </p>
-                
-                <p>
-                  Our journey from idea to impact continues as we push the boundaries of what's possible 
-                  with AI education, always staying true to our roots of academic excellence and practical career innovation.
-                </p>
+              <div className="bg-slate-700/50 p-4 sm:p-6 rounded-xl border border-blue-500/10">
+                <div className="space-y-4 sm:space-y-6 text-gray-300 leading-relaxed text-sm sm:text-base">
+                  <p>
+                    Founded in 2024 by Didigam Nithin, an IIT Kanpur alumnus with extensive experience in Data 
+                    Science and AI, Learn.Nhancio emerged from a vision to bridge the gap between cutting-edge AI research 
+                    and practical career applications.
+                  </p>
+                  
+                  <p>
+                    What started as a passion project to make AI education accessible and practical has evolved 
+                    into a thriving education platform that empowers professionals to transform their careers through 
+                    intelligent technology and hands-on learning.
+                  </p>
+                  
+                  <p>
+                    Today, we're proud to be at the forefront of AI education, helping professionals transform 
+                    their careers and unlock new opportunities through intelligent technology and practical skills.
+                  </p>
+                  
+                  <p>
+                    Our journey from idea to impact continues as we push the boundaries of what's possible 
+                    with AI education, always staying true to our roots of academic excellence and practical career innovation.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -288,7 +261,7 @@ const AboutUsPage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-slate-800 p-6 rounded-lg border border-blue-500/20 text-center">
+            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20 text-center">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-6 h-6 text-white" />
               </div>
@@ -298,7 +271,7 @@ const AboutUsPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-slate-800 p-6 rounded-lg border border-blue-500/20 text-center">
+            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20 text-center">
               <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Target className="w-6 h-6 text-white" />
               </div>
@@ -308,7 +281,7 @@ const AboutUsPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-slate-800 p-6 rounded-lg border border-blue-500/20 text-center">
+            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20 text-center">
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-6 h-6 text-white" />
               </div>
@@ -318,7 +291,7 @@ const AboutUsPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-slate-800 p-6 rounded-lg border border-blue-500/20 text-center">
+            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20 text-center">
               <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
@@ -330,27 +303,6 @@ const AboutUsPage: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Contact CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="text-center"
-        >
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Transform Your Career with AI?
-            </h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Join the professionals who are already leveraging AI to accelerate their careers and secure their future. 
-              Let our IITian team help you unlock the full potential of artificial intelligence for your career growth.
-            </p>
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center space-x-2">
-              <span>Start Your Career Transformation</span>
-              <Users className="w-5 h-5" />
-            </button>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

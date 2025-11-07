@@ -114,23 +114,15 @@ const CourseDetailPage: React.FC = () => {
     // Get Razorpay key from environment variables
     const razorpayKey = import.meta.env.VITE_RAZORPAY_KEY_ID;
     
-    // Debug: Log environment variable (remove in production)
-    console.log('Razorpay Key Check:', {
-      hasKey: !!razorpayKey,
-      keyLength: razorpayKey?.length || 0,
-      envKeys: Object.keys(import.meta.env).filter(k => k.includes('RAZOR'))
-    });
-    
-    // Use fallback test key if not configured (for development/testing only)
-    // For production, always use the key from .env file
-    const finalKey = razorpayKey || 'rzp_test_1DP5mmOlF5G5ag';
-    
     if (!razorpayKey) {
-      console.warn('⚠️ Razorpay key not found in .env. Using fallback test key for development.');
-      console.warn('Please add VITE_RAZORPAY_KEY_ID=your_key_here to your .env file');
-    } else {
-      console.log('✅ Razorpay key loaded successfully');
+      console.error('❌ Razorpay key not found in .env file');
+      setErrorMessage('Payment gateway configuration error. Please contact support.');
+      setIsProcessingPayment(false);
+      setShowErrorModal(true);
+      return;
     }
+    
+    const finalKey = razorpayKey;
 
     const options = {
       key: finalKey,
@@ -160,6 +152,34 @@ const CourseDetailPage: React.FC = () => {
       modal: {
         ondismiss: function() {
           setIsProcessingPayment(false);
+        },
+        animation: true,
+      },
+      config: {
+        display: {
+          blocks: {
+            banks: {
+              name: 'All payment methods',
+              instruments: [
+                {
+                  method: 'card',
+                },
+                {
+                  method: 'netbanking',
+                },
+                {
+                  method: 'wallet',
+                },
+                {
+                  method: 'upi',
+                },
+              ],
+            },
+          },
+          sequence: ['block.banks'],
+          preferences: {
+            show_default_blocks: true,
+          },
         },
       },
     };
@@ -192,7 +212,7 @@ const CourseDetailPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-12 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Workshop Header */}
         <motion.div
@@ -204,7 +224,7 @@ const CourseDetailPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Workshop Info */}
             <div className="lg:col-span-2">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
                 {course.title}
               </h1>
               <p className="text-xl text-gray-300 mb-6">
@@ -242,7 +262,7 @@ const CourseDetailPage: React.FC = () => {
 
             {/* Workshop Card */}
             <div className="lg:col-span-1">
-              <div className="bg-slate-800 rounded-lg p-6 border border-blue-500/20 sticky top-24">
+              <div className="bg-slate-800 rounded-2xl p-6 border border-blue-500/20 sticky top-24">
                 <div className="text-center mb-6">
                   <div className="text-sm text-gray-400 line-through mb-1">{course.originalPrice}</div>
                   <div className="text-3xl font-bold text-white mb-2">{course.price}</div>
@@ -252,7 +272,7 @@ const CourseDetailPage: React.FC = () => {
                 <button
                   onClick={handlePayment}
                   disabled={isProcessingPayment}
-                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 sm:py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 mb-3 sm:mb-4 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 sm:py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 mb-3 sm:mb-4 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isProcessingPayment ? (
                     <>
@@ -267,12 +287,12 @@ const CourseDetailPage: React.FC = () => {
                   )}
                 </button>
 
-                <button className="w-full bg-slate-700 text-white py-3 rounded-lg font-semibold hover:bg-slate-600 transition-all duration-200 mb-3 sm:mb-4 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base">
+                <button className="w-full bg-slate-700 text-white py-3 rounded-xl font-semibold hover:bg-slate-600 transition-all duration-200 mb-3 sm:mb-4 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base">
                   <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Download Syllabus</span>
                 </button>
 
-                <button className="w-full bg-slate-700 text-white py-3 rounded-lg font-semibold hover:bg-slate-600 transition-all duration-200 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base">
+                <button className="w-full bg-slate-700 text-white py-3 rounded-xl font-semibold hover:bg-slate-600 transition-all duration-200 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base">
                   <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Share Workshop</span>
                 </button>
@@ -303,7 +323,7 @@ const CourseDetailPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-white mb-8">Workshop Curriculum</h2>
           <div className="space-y-4">
             {course.curriculum.map((week) => (
-              <div key={week.week} className="bg-slate-800 rounded-lg p-6 border border-blue-500/20">
+              <div key={week.week} className="bg-slate-800 rounded-2xl p-6 border border-blue-500/20">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-semibold text-white">
                     Week {week.week}: {week.title}
@@ -332,7 +352,7 @@ const CourseDetailPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-white mb-8">Student Reviews</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {course.reviews.map((review, reviewIndex) => (
-              <div key={review.id || reviewIndex} className="bg-slate-800 p-6 rounded-lg border border-blue-500/20">
+              <div key={review.id || reviewIndex} className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-2">
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
@@ -362,7 +382,7 @@ const CourseDetailPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg p-8">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4">
               Ready to Transform Your Career?
             </h3>
@@ -372,7 +392,7 @@ const CourseDetailPage: React.FC = () => {
             <button
               onClick={handlePayment}
               disabled={isProcessingPayment}
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isProcessingPayment ? (
                 <>

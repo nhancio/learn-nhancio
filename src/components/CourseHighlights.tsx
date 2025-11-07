@@ -78,33 +78,6 @@ const CourseHighlights: React.FC = () => {
           ))}
         </div>
         
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 lg:p-12"
-        >
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
-            <div>
-              <div className="text-4xl font-bold mb-2">10,000+</div>
-              <div className="text-blue-100">Students Enrolled</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">4.9/5</div>
-              <div className="text-blue-100">Average Rating</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">85%</div>
-              <div className="text-blue-100">Job Placement Rate</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">30+</div>
-              <div className="text-blue-100">AI Tools Covered</div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

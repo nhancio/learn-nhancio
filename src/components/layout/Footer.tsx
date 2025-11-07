@@ -39,9 +39,11 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="col-span-1 sm:col-span-2">
             <div className="flex items-center space-x-2 mb-3 sm:mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">N</span>
-              </div>
+              <img 
+                src="/logos/Nhancio-logo.png" 
+                alt="Nhancio Logo" 
+                className="h-8 w-auto sm:h-10"
+              />
               <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                 Learn.Nhancio
               </span>

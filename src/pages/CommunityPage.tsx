@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ExternalLink, Users, MessageCircle, Heart, Share2 } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const CommunityPage: React.FC = () => {
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   const socialLinks = [
     {
@@ -26,87 +25,6 @@ const CommunityPage: React.FC = () => {
     }
   ];
 
-                const communityPhotos = [
-                {
-                  id: 1,
-                  title: 'AI Hackathon Winners',
-                  description: 'Our team celebrating victory at the AI4TG Hackathon by Telangana AI Mission',
-                  image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=500&fit=crop',
-                  likes: 156,
-                  comments: 23,
-                  category: 'Hackathon'
-                },
-                {
-                  id: 2,
-                  title: 'Podcast Recording Session',
-                  description: 'Recording the first-ever Telugu podcast on AI and technology',
-                  image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=500&fit=crop',
-                  likes: 89,
-                  comments: 12,
-                  category: 'Media'
-                },
-                {
-                  id: 3,
-                  title: 'Community Meetup',
-                  description: 'Bringing the Telugu tech community together for knowledge sharing',
-                  image: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=500&fit=crop',
-                  likes: 234,
-                  comments: 45,
-                  category: 'Networking'
-                },
-                {
-                  id: 4,
-                  title: 'Workshop Session',
-                  description: 'Hands-on AI workshop with students and professionals',
-                  image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop',
-                  likes: 178,
-                  comments: 31,
-                  category: 'Workshop'
-                },
-                {
-                  id: 5,
-                  title: 'Team Building',
-                  description: 'Our amazing team working on innovative AI solutions',
-                  image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=500&fit=crop',
-                  likes: 203,
-                  comments: 28,
-                  category: 'Team'
-                },
-                {
-                  id: 6,
-                  title: 'AI Conference',
-                  description: 'Presenting our latest AI innovations at tech conferences',
-                  image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=500&fit=crop',
-                  likes: 312,
-                  comments: 67,
-                  category: 'Conference'
-                }
-              ];
-
-  const communityStats = [
-    { label: 'Community Members', value: '10,000+', icon: Users },
-    { label: 'Events Hosted', value: '50+', icon: MessageCircle },
-    { label: 'Countries Reached', value: '25+', icon: Share2 },
-    { label: 'Success Stories', value: '500+', icon: Heart }
-  ];
-
-                const nextPhoto = () => {
-                setCurrentPhotoIndex((prev) => (prev + 1) % communityPhotos.length);
-              };
-
-              const prevPhoto = () => {
-                setCurrentPhotoIndex((prev) => (prev - 1 + communityPhotos.length) % communityPhotos.length);
-              };
-
-              // Auto-rotate carousel
-              useEffect(() => {
-                const interval = setInterval(() => {
-                  setCurrentPhotoIndex((prev) => (prev + 1) % communityPhotos.length);
-                }, 5000); // Change every 5 seconds
-
-                return () => clearInterval(interval);
-              }, [communityPhotos.length]);
-
   return (
     <div className="min-h-screen py-12 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -125,23 +43,6 @@ const CommunityPage: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Community Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-16"
-        >
-          {communityStats.map((stat, index) => (
-            <div key={stat.label} className="text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-              </div>
-              <div className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">{stat.value}</div>
-              <div className="text-gray-400 text-xs sm:text-sm">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
 
         {/* Social Links */}
         <motion.div
@@ -191,93 +92,6 @@ const CommunityPage: React.FC = () => {
           </div>
         </motion.div>
 
-                            {/* Community Photos Carousel */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.6 }}
-                      className="mb-16"
-                    >
-                      <h2 className="text-3xl font-bold text-white text-center mb-8">
-                        Community Highlights
-                      </h2>
-                      
-                      <div className="relative">
-                        {/* Carousel Container */}
-                        <div className="relative overflow-hidden rounded-lg shadow-2xl">
-                          <div 
-                            className="flex transition-transform duration-700 ease-in-out"
-                            style={{ transform: `translateX(-${currentPhotoIndex * 100}%)` }}
-                          >
-                            {communityPhotos.map((photo) => (
-                              <div key={photo.id} className="w-full flex-shrink-0">
-                                <div className="relative">
-                                  <img 
-                                    src={photo.image} 
-                                    alt={photo.title}
-                                    className="w-full h-96 object-cover"
-                                  />
-                                  
-                                  {/* Category Badge */}
-                                  <div className="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                                    {photo.category}
-                                  </div>
-                                  
-                                  {/* Photo Info Overlay */}
-                                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6">
-                                    <div className="flex items-center justify-between">
-                                      <div className="flex-1">
-                                        <h3 className="text-white font-semibold text-xl mb-2">{photo.title}</h3>
-                                        <p className="text-gray-200 text-sm leading-relaxed">{photo.description}</p>
-                                      </div>
-                                      <div className="flex items-center space-x-4 text-white ml-4">
-                                        <div className="flex items-center space-x-1 bg-black/30 px-3 py-1 rounded-full">
-                                          <Heart className="w-4 h-4" />
-                                          <span className="text-sm font-medium">{photo.likes}</span>
-                                        </div>
-                                        <div className="flex items-center space-x-1 bg-black/30 px-3 py-1 rounded-full">
-                                          <MessageCircle className="w-4 h-4" />
-                                          <span className="text-sm font-medium">{photo.comments}</span>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Navigation Buttons */}
-                        <button
-                          onClick={prevPhoto}
-                          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 sm:p-3 rounded-full transition-all duration-200 shadow-lg hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                        >
-                          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-                        </button>
-                        <button
-                          onClick={nextPhoto}
-                          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 sm:p-3 rounded-full transition-all duration-200 shadow-lg hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                        >
-                          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-                        </button>
-
-                        {/* Dots Indicator */}
-                        <div className="flex justify-center mt-6 space-x-3">
-                          {communityPhotos.map((_, index) => (
-                            <button
-                              key={index}
-                              onClick={() => setCurrentPhotoIndex(index)}
-                              className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                                index === currentPhotoIndex 
-                                  ? 'bg-blue-500 scale-125' 
-                                  : 'bg-gray-400 hover:bg-gray-300'
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
 
         
       </div>

@@ -54,23 +54,15 @@ const CoursesPage: React.FC = () => {
     // Get Razorpay key from environment variables
     const razorpayKey = import.meta.env.VITE_RAZORPAY_KEY_ID;
     
-    // Debug: Log environment variable (remove in production)
-    console.log('Razorpay Key Check:', {
-      hasKey: !!razorpayKey,
-      keyLength: razorpayKey?.length || 0,
-      envKeys: Object.keys(import.meta.env).filter(k => k.includes('RAZOR'))
-    });
-    
-    // Use fallback test key if not configured (for development/testing only)
-    // For production, always use the key from .env file
-    const finalKey = razorpayKey || 'rzp_test_1DP5mmOlF5G5ag';
-    
     if (!razorpayKey) {
-      console.warn('⚠️ Razorpay key not found in .env. Using fallback test key for development.');
-      console.warn('Please add VITE_RAZORPAY_KEY_ID=your_key_here to your .env file');
-    } else {
-      console.log('✅ Razorpay key loaded successfully');
+      console.error('❌ Razorpay key not found in .env file');
+      setErrorMessage('Payment gateway configuration error. Please contact support.');
+      setIsProcessingPayment(false);
+      setShowErrorModal(true);
+      return;
     }
+    
+    const finalKey = razorpayKey;
 
     const options = {
       key: finalKey,
@@ -100,6 +92,34 @@ const CoursesPage: React.FC = () => {
       modal: {
         ondismiss: function() {
           setIsProcessingPayment(false);
+        },
+        animation: true,
+      },
+      config: {
+        display: {
+          blocks: {
+            banks: {
+              name: 'All payment methods',
+              instruments: [
+                {
+                  method: 'card',
+                },
+                {
+                  method: 'netbanking',
+                },
+                {
+                  method: 'wallet',
+                },
+                {
+                  method: 'upi',
+                },
+              ],
+            },
+          },
+          sequence: ['block.banks'],
+          preferences: {
+            show_default_blocks: true,
+          },
         },
       },
     };
@@ -155,7 +175,7 @@ const CoursesPage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-slate-800 rounded-lg overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 max-w-4xl w-full"
+            className="bg-slate-800 rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 max-w-4xl w-full"
           >
             {/* Workshop Image */}
             <div className="h-80 bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center relative">
@@ -186,7 +206,7 @@ const CoursesPage: React.FC = () => {
               </div>
 
               {/* Price and CTA */}
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 bg-slate-700 rounded-lg">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 bg-slate-700 rounded-xl">
                 <div className="text-center md:text-left">
                   <div className="text-sm text-gray-400 line-through mb-1">{course.originalPrice}</div>
                   <div className="text-4xl font-bold text-white mb-2">{course.price}</div>
@@ -227,21 +247,21 @@ const CoursesPage: React.FC = () => {
             Why Choose This Workshop?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-800 p-6 rounded-lg border border-blue-500/20">
+            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Expert-Led</h3>
               <p className="text-gray-300">Learn from IIT alumni and industry experts with real-world experience</p>
             </div>
-            <div className="bg-slate-800 p-6 rounded-lg border border-blue-500/20">
+            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Community</h3>
-              <p className="text-gray-300">Join a community of 10,000+ learners and professionals</p>
+              <p className="text-gray-300">Join a community of learners and professionals</p>
             </div>
-            <div className="bg-slate-800 p-6 rounded-lg border border-blue-500/20">
+            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-6 h-6 text-white" />
               </div>

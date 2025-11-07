@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, MessageCircle, ExternalLink } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, ExternalLink } from 'lucide-react';
 
 const ContactUsPage: React.FC = () => {
   const contactInfo = [
@@ -25,13 +25,6 @@ const ContactUsPage: React.FC = () => {
       link: null,
       color: 'from-purple-500 to-purple-600'
     },
-    {
-      icon: Clock,
-      title: 'Business Hours',
-      value: 'Mon - Fri: 9:00 AM - 6:00 PM IST',
-      link: null,
-      color: 'from-orange-500 to-orange-600'
-    }
   ];
 
   const socialLinks = [
@@ -96,9 +89,9 @@ const ContactUsPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-8 sm:mb-16"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {contactInfo.map((info, index) => (
-              <div key={info.title} className="bg-slate-800 p-6 rounded-lg border border-blue-500/20 text-center">
+              <div key={info.title} className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20 text-center">
                 <div className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
                   <info.icon className="w-6 h-6 text-white" />
                 </div>
@@ -141,7 +134,7 @@ const ContactUsPage: React.FC = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group bg-gradient-to-r ${social.color} p-4 rounded-lg hover:scale-105 transition-all duration-300`}
+                className={`group bg-gradient-to-r ${social.color} p-4 rounded-2xl hover:scale-105 transition-all duration-300`}
               >
                 <div className="flex items-center space-x-2 text-white">
                   {social.icon}
@@ -155,23 +148,6 @@ const ContactUsPage: React.FC = () => {
 
 
 
-        {/* Response Time Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center"
-        >
-          <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/30 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-green-400 mb-2">
-              Quick Response Guarantee
-            </h3>
-            <p className="text-gray-300">
-              We typically respond to all inquiries within 2-4 hours during business hours. 
-              For urgent matters, please call us directly at <strong>+91 7095288950</strong>.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </div>
   );
