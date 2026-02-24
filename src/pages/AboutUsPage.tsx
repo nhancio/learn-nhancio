@@ -13,13 +13,13 @@ const AboutUsPage: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-8 sm:mb-16 px-2"
         >
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
             <Users className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
             A Dream by IITians to Build the Future with AI
           </h1>
-          <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Founded by passionate IITians, Nhancio is democratizing AI education and making cutting-edge technology 
             accessible to professionals, empowering them to transform their careers and secure their future in the digital age.
           </p>
@@ -33,8 +33,8 @@ const AboutUsPage: React.FC = () => {
           className="mb-16"
         >
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Our Achievements</h2>
-            <p className="text-xl text-gray-400">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Achievements</h2>
+            <p className="text-xl text-gray-600">
               Recognition and milestones that showcase our commitment to excellence.
             </p>
           </div>
@@ -63,7 +63,7 @@ const AboutUsPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-3xl shadow-lg"
+              className="bg-gradient-to-br from-teal-50 to-emerald-100 p-8 rounded-3xl shadow-lg"
             >
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -104,13 +104,13 @@ const AboutUsPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mb-16"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-8 rounded-2xl">
+          <div className="bg-gradient-to-r from-teal-600 to-teal-800 p-8 rounded-2xl">
             <div className="text-center mb-8">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-6 h-6 text-white" />
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">Our Values</h2>
-              <p className="text-blue-100 text-lg max-w-3xl mx-auto leading-relaxed">
+              <p className="text-teal-100 text-lg max-w-3xl mx-auto leading-relaxed">
                 Innovation, integrity, and impact drive everything we do. We believe in building 
                 long-term career partnerships and delivering education that creates lasting professional value.
               </p>
@@ -122,7 +122,7 @@ const AboutUsPage: React.FC = () => {
                   <BookOpen className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-white font-semibold text-lg mb-2">Innovation</h3>
-                <p className="text-blue-100 text-sm">
+                <p className="text-teal-100 text-sm">
                   We constantly push the boundaries of what's possible with AI, staying at the 
                   forefront of technological advancement.
                 </p>
@@ -133,7 +133,7 @@ const AboutUsPage: React.FC = () => {
                   <Award className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-white font-semibold text-lg mb-2">Integrity</h3>
-                <p className="text-blue-100 text-sm">
+                <p className="text-teal-100 text-sm">
                   We maintain the highest ethical standards in all our interactions, building 
                   trust through transparency and honesty.
                 </p>
@@ -144,7 +144,7 @@ const AboutUsPage: React.FC = () => {
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-white font-semibold text-lg mb-2">Impact</h3>
-                <p className="text-blue-100 text-sm">
+                <p className="text-teal-100 text-sm">
                   We measure our success by the positive career impact we create for our students and 
                   the broader professional community.
                 </p>
@@ -162,21 +162,21 @@ const AboutUsPage: React.FC = () => {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {/* Founder Section */}
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 sm:p-8 rounded-2xl border border-blue-500/20">
+            <div className="bg-white border border-gray-200 shadow-md p-6 sm:p-8 rounded-2xl">
               <div className="text-center mb-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <User className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Our Founder</h2>
               </div>
               
-              <div className="bg-slate-700/50 p-4 sm:p-6 rounded-xl border border-blue-500/10">
+              <div className="bg-gray-50 p-4 sm:p-6 rounded-xl border border-gray-200">
                 <div className="flex flex-col items-center text-center mb-4">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-4">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mb-4">
                     <span className="text-white font-bold text-xl sm:text-2xl">DN</span>
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Didigam Nithin</h3>
-                  <p className="text-blue-400 font-semibold mb-4">Founder & CEO</p>
+                  <p className="text-teal-400 font-semibold mb-4">Founder & CEO</p>
                 </div>
                 <div className="space-y-3 text-gray-300 leading-relaxed text-sm sm:text-base">
                   <p>
@@ -190,7 +190,7 @@ const AboutUsPage: React.FC = () => {
                     worked on cutting-edge projects that have transformed businesses and solved complex 
                     challenges.
                   </p>
-                  <div className="mt-4 pt-4 border-t border-blue-500/20">
+                  <div className="mt-4 pt-4 border-t border-teal-500/20">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <p className="text-xs sm:text-sm text-gray-400">Education</p>
@@ -207,15 +207,15 @@ const AboutUsPage: React.FC = () => {
             </div>
 
             {/* Our Story */}
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 sm:p-8 rounded-2xl border border-blue-500/20">
+            <div className="bg-white border border-gray-200 shadow-md p-6 sm:p-8 rounded-2xl">
               <div className="text-center mb-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Our Story</h2>
               </div>
               
-              <div className="bg-slate-700/50 p-4 sm:p-6 rounded-xl border border-blue-500/10">
+              <div className="bg-gray-50 p-4 sm:p-6 rounded-xl border border-gray-200">
                 <div className="space-y-4 sm:space-y-6 text-gray-300 leading-relaxed text-sm sm:text-base">
                   <p>
                     Founded in 2024 by Didigam Nithin, an IIT Kanpur alumnus with extensive experience in Data 
@@ -261,42 +261,42 @@ const AboutUsPage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20 text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md text-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-white font-semibold mb-2">IITian Expertise</h3>
-              <p className="text-gray-300 text-sm">
+              <h3 className="text-gray-900 font-semibold mb-2">IITian Expertise</h3>
+              <p className="text-gray-600 text-sm">
                 Founded and led by IITians with deep technical knowledge and industry experience
               </p>
             </div>
 
-            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20 text-center">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md text-center">
               <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Target className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-white font-semibold mb-2">Career-Focused Learning</h3>
-              <p className="text-gray-300 text-sm">
+              <h3 className="text-gray-900 font-semibold mb-2">Career-Focused Learning</h3>
+              <p className="text-gray-600 text-sm">
                 We focus on real-world applications that deliver measurable career advancement results
               </p>
             </div>
 
-            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20 text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md text-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-white font-semibold mb-2">Proven Track Record</h3>
-              <p className="text-gray-300 text-sm">
+              <h3 className="text-gray-900 font-semibold mb-2">Proven Track Record</h3>
+              <p className="text-gray-600 text-sm">
                 Award-winning team with recognition from government and industry leaders
               </p>
             </div>
 
-            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20 text-center">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md text-center">
               <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-white font-semibold mb-2">Rapid Growth</h3>
-              <p className="text-gray-300 text-sm">
+              <h3 className="text-gray-900 font-semibold mb-2">Rapid Growth</h3>
+              <p className="text-gray-600 text-sm">
                 Fastest growing AI startup in Hyderabad with a mission to transform careers through practical education
               </p>
             </div>

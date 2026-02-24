@@ -55,7 +55,7 @@ const testimonials = [
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-teal-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -66,7 +66,7 @@ const Testimonials: React.FC = () => {
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Success Stories from
-            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
               Our Graduates
             </span>
           </h2>
@@ -93,7 +93,7 @@ const Testimonials: React.FC = () => {
                 </div>
                 
                 <div className="relative mb-6 flex-1">
-                  <Quote className="absolute -top-2 -left-2 w-8 h-8 text-blue-200" />
+                  <Quote className="absolute -top-2 -left-2 w-8 h-8 text-teal-200" />
                   <p className="text-gray-600 leading-relaxed relative z-10">
                     "{testimonial.content}"
                   </p>

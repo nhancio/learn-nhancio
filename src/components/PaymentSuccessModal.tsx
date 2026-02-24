@@ -46,7 +46,7 @@ const PaymentSuccessModal: React.FC<PaymentSuccessModalProps> = ({ isOpen, onClo
         ...defaults,
         particleCount: 100,
         origin: { x: 0.5, y: 0.5 },
-        colors: ['#3b82f6', '#8b5cf6', '#ec4899', '#10b981', '#f59e0b']
+        colors: ['#14b8a6', '#0d9488', '#10b981', '#059669', '#f59e0b']
       });
     }
   }, [isOpen]);
@@ -69,12 +69,12 @@ const PaymentSuccessModal: React.FC<PaymentSuccessModalProps> = ({ isOpen, onClo
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 max-w-md w-full border border-blue-500/30 shadow-2xl relative overflow-hidden"
+              className="bg-white rounded-2xl p-8 max-w-md w-full border border-gray-200 shadow-2xl relative overflow-hidden"
             >
               {/* Close button */}
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -98,17 +98,17 @@ const PaymentSuccessModal: React.FC<PaymentSuccessModalProps> = ({ isOpen, onClo
                 transition={{ delay: 0.3 }}
                 className="text-center"
               >
-                <h2 className="text-3xl font-bold text-white mb-3">
+                <h2 className="text-3xl font-bold text-gray-900 mb-3">
                   🎉 Congratulations!
                 </h2>
                 <div className="flex items-center justify-center gap-2 mb-4">
                   <Sparkles className="w-5 h-5 text-yellow-400" />
-                  <p className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                  <p className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">
                     Your First Step to Become a Future AI Leader
                   </p>
                   <Sparkles className="w-5 h-5 text-yellow-400" />
                 </div>
-                <p className="text-gray-300 mb-6">
+                <p className="text-gray-600 mb-6">
                   Your payment was successful! Welcome to the AI upskill Workshop. 
                   Get ready to transform your career and unlock endless possibilities.
                 </p>
@@ -116,15 +116,15 @@ const PaymentSuccessModal: React.FC<PaymentSuccessModalProps> = ({ isOpen, onClo
                 {/* Action Buttons */}
                 <div className="space-y-3">
                   <Link
-                    to="/courses"
+                    to="/"
                     onClick={onClose}
-                    className="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 text-center"
+                    className="block w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-teal-700 transition-all duration-200 text-center"
                   >
                     Explore Workshop
                   </Link>
                   <button
                     onClick={onClose}
-                    className="block w-full bg-slate-700 text-white py-3 rounded-lg font-semibold hover:bg-slate-600 transition-all duration-200"
+                    className="block w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-all duration-200"
                   >
                     Close
                   </button>

@@ -27,12 +27,12 @@ const PaymentErrorModal: React.FC<PaymentErrorModalProps> = ({ isOpen, onClose, 
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 max-w-md w-full border border-red-500/30 shadow-2xl relative"
+              className="bg-white rounded-2xl p-8 max-w-md w-full border border-gray-200 shadow-2xl relative"
             >
               {/* Close button */}
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -56,10 +56,10 @@ const PaymentErrorModal: React.FC<PaymentErrorModalProps> = ({ isOpen, onClose, 
                 transition={{ delay: 0.3 }}
                 className="text-center"
               >
-                <h2 className="text-3xl font-bold text-white mb-3">
+                <h2 className="text-3xl font-bold text-gray-900 mb-3">
                   Payment Failed
                 </h2>
-                <p className="text-gray-300 mb-6">
+                <p className="text-gray-600 mb-6">
                   {errorMessage || 'Your payment could not be processed. Please try again or contact support if the issue persists.'}
                 </p>
 

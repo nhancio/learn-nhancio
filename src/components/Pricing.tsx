@@ -62,7 +62,7 @@ const plans = [
 
 const Pricing: React.FC = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-teal-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -73,7 +73,7 @@ const Pricing: React.FC = () => {
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Choose Your
-            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
               Career Path
             </span>
           </h2>
@@ -100,7 +100,7 @@ const Pricing: React.FC = () => {
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2">
+                  <div className="bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2">
                     <Star className="w-4 h-4 fill-current" />
                     Most Popular
                   </div>
@@ -109,7 +109,7 @@ const Pricing: React.FC = () => {
               
               <div className={`relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full ${
                 plan.popular 
-                  ? 'border-2 border-blue-500 ring-4 ring-blue-100' 
+                  ? 'border-2 border-teal-500 ring-4 ring-teal-100' 
                   : 'border border-gray-200'
               }`}>
                 <div className="text-center mb-8">
@@ -136,7 +136,7 @@ const Pricing: React.FC = () => {
                   
                   <div className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
                     plan.popular
-                      ? 'bg-blue-100 text-blue-700'
+                      ? 'bg-teal-100 text-teal-700'
                       : 'bg-gray-100 text-gray-700'
                   }`}>
                     Save ${plan.originalPrice - plan.price}
@@ -172,7 +172,7 @@ const Pricing: React.FC = () => {
                 
                 <button className={`w-full py-4 px-6 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${
                   plan.popular
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg'
+                    ? 'bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white shadow-lg'
                     : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
                 }`}>
                   Enroll Now

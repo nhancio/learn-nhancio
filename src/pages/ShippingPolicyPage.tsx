@@ -13,13 +13,13 @@ const ShippingPolicyPage: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
             <Truck className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Shipping & Delivery Policy
           </h1>
-          <p className="text-xl text-gray-400">
+          <p className="text-xl text-gray-600">
             Last updated: January 2024
           </p>
         </motion.div>
@@ -31,9 +31,9 @@ const ShippingPolicyPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="space-y-8"
         >
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">1. Digital Product Delivery</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Digital Product Delivery</h2>
+            <div className="space-y-4 text-gray-600">
               <p>Since we offer digital courses and educational content, our delivery process is instant and digital:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>Instant Access:</strong> Course access is granted immediately upon successful payment</li>
@@ -45,9 +45,9 @@ const ShippingPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">2. Delivery Timeline</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Delivery Timeline</h2>
+            <div className="space-y-4 text-gray-600">
               <p>Our delivery process is designed for maximum convenience:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>Immediate Access:</strong> Within 5 minutes of payment confirmation</li>
@@ -58,9 +58,9 @@ const ShippingPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">3. Access Requirements</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Access Requirements</h2>
+            <div className="space-y-4 text-gray-600">
               <p>To access your digital course, you'll need:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>Internet Connection:</strong> Stable broadband or mobile data</li>
@@ -72,9 +72,9 @@ const ShippingPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">4. Certificate Delivery</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Certificate Delivery</h2>
+            <div className="space-y-4 text-gray-600">
               <p>Upon course completion, certificates are delivered digitally:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>Digital Certificate:</strong> PDF format available for download</li>
@@ -86,9 +86,9 @@ const ShippingPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">5. Technical Support</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Technical Support</h2>
+            <div className="space-y-4 text-gray-600">
               <p>We provide comprehensive support for delivery issues:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>Access Issues:</strong> Immediate support for login problems</li>
@@ -100,9 +100,9 @@ const ShippingPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">6. Delivery Confirmation</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Delivery Confirmation</h2>
+            <div className="space-y-4 text-gray-600">
               <p>You'll receive multiple confirmations of your delivery:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>Payment Confirmation:</strong> Immediate payment receipt</li>
@@ -113,9 +113,9 @@ const ShippingPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">7. Contact Information</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Contact Information</h2>
+            <div className="space-y-4 text-gray-600">
               <p>For delivery-related inquiries, please contact us:</p>
               <div className="bg-slate-700 p-4 rounded-lg">
                 <p><strong>Email:</strong> hello@nhancio.com</p>
@@ -127,12 +127,12 @@ const ShippingPolicyPage: React.FC = () => {
           </div>
 
           {/* Important Notice */}
-          <div className="bg-blue-500/10 border border-blue-500/30 p-6 rounded-lg">
+          <div className="bg-teal-50 border border-teal-200 p-6 rounded-lg">
             <div className="flex items-start space-x-3">
-              <Wifi className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+              <Wifi className="w-6 h-6 text-teal-600 mt-1 flex-shrink-0" />
               <div>
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Instant Digital Delivery</h3>
-                <p className="text-gray-300">
+                <h3 className="text-lg font-semibold text-teal-600 mb-2">Instant Digital Delivery</h3>
+                <p className="text-gray-600">
                   Our digital delivery system ensures you get immediate access to your course content. 
                   No waiting, no shipping delays - just instant access to world-class education.
                 </p>

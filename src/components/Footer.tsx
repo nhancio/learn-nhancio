@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           {/* Company info */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-xl flex items-center justify-center">
                 <Bot className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -24,9 +24,9 @@ const Footer: React.FC = () => {
             </p>
             
             <div className="flex items-center gap-4">
-              <Facebook className="w-5 h-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
-              <Twitter className="w-5 h-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
-              <Linkedin className="w-5 h-5 text-gray-400 hover:text-blue-400 cursor-pointer transition-colors" />
+              <Facebook className="w-5 h-5 text-gray-400 hover:text-teal-400 cursor-pointer transition-colors" />
+              <Twitter className="w-5 h-5 text-gray-400 hover:text-teal-400 cursor-pointer transition-colors" />
+              <Linkedin className="w-5 h-5 text-gray-400 hover:text-teal-400 cursor-pointer transition-colors" />
               <Instagram className="w-5 h-5 text-gray-400 hover:text-pink-400 cursor-pointer transition-colors" />
               <Youtube className="w-5 h-5 text-gray-400 hover:text-red-400 cursor-pointer transition-colors" />
             </div>
@@ -36,12 +36,12 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">Career Programs</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">Career Coaches</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">Success Stories</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">Blog</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">AI Tools</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">About Us</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">Career Programs</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">Career Coaches</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">Success Stories</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">Blog</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">AI Tools</a></li>
             </ul>
           </div>
           
@@ -49,12 +49,12 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6">Support</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">Help Center</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">Career Community</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">Refund Policy</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">Help Center</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">Contact Us</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">Career Community</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-teal-400 transition-colors">Refund Policy</a></li>
             </ul>
           </div>
           
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-6">Contact</h4>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-blue-400" />
+                <Mail className="w-5 h-5 text-teal-400" />
                 <div>
                   <div className="text-gray-300">Email</div>
                   <div className="text-sm text-gray-400">hello@aicareermastery.com</div>
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
               </div>
               
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-blue-400" />
+                <Phone className="w-5 h-5 text-teal-400" />
                 <div>
                   <div className="text-gray-300">Phone</div>
                   <div className="text-sm text-gray-400">+1 (555) 123-4567</div>
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
               </div>
               
               <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-blue-400" />
+                <MapPin className="w-5 h-5 text-teal-400" />
                 <div>
                   <div className="text-gray-300">Address</div>
                   <div className="text-sm text-gray-400">San Francisco, CA</div>
@@ -97,13 +97,13 @@ const Footer: React.FC = () => {
             </div>
             
             <div className="flex items-center gap-6">
-              <a href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
+              <a href="#" className="text-gray-400 hover:text-teal-400 text-sm transition-colors">
                 Sitemap
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
+              <a href="#" className="text-gray-400 hover:text-teal-400 text-sm transition-colors">
                 Accessibility
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
+              <a href="#" className="text-gray-400 hover:text-teal-400 text-sm transition-colors">
                 Cookies
               </a>
             </div>

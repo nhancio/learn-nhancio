@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Toaster } from 'react-hot-toast';
 
@@ -21,6 +21,9 @@ import ShippingPolicyPage from './pages/ShippingPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage';
+import WebinarDetailPage from './pages/WebinarDetailPage';
+import TestimonialsPage from './pages/TestimonialsPage';
+import AchievementsPage from './pages/AchievementsPage';
 
 
 // Create a client
@@ -37,7 +40,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        <div className="min-h-screen bg-gray-50">
           <Header />
           <main className="flex-1">
             <Routes>
@@ -56,6 +59,10 @@ function App() {
               <Route path="/about" element={<AboutUsPage />} />
               <Route path="/aboutus" element={<AboutUsPage />} />
               <Route path="/contactus" element={<ContactUsPage />} />
+              <Route path="/workshops" element={<Navigate to="/#workshops" replace />} />
+              <Route path="/webinar/:slug" element={<WebinarDetailPage />} />
+              <Route path="/testimonials" element={<TestimonialsPage />} />
+              <Route path="/achievements" element={<AchievementsPage />} />
             </Routes>
           </main>
           <Footer />
@@ -66,9 +73,9 @@ function App() {
         toastOptions={{
           duration: 4000,
           style: {
-            background: '#1e293b',
-            color: '#f8fafc',
-            border: '1px solid #3b82f6',
+            background: '#fff',
+            color: '#0f172a',
+            border: '1px solid #14b8a6',
           },
         }}
       />

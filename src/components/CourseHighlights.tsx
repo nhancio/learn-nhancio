@@ -7,13 +7,13 @@ const highlights = [
     icon: Bot,
     title: "Learn 30+ AI Tools",
     description: "Master the latest AI tools including ChatGPT, Claude, Midjourney, and more",
-    color: "from-blue-500 to-cyan-500"
+    color: "from-teal-500 to-cyan-500"
   },
   {
     icon: Award,
     title: "ISO Certified Curriculum",
     description: "Industry-recognized certification with comprehensive learning modules",
-    color: "from-purple-500 to-pink-500"
+    color: "from-teal-600 to-emerald-500"
   },
   {
     icon: Users,
@@ -42,7 +42,7 @@ const CourseHighlights: React.FC = () => {
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Why Choose Our
-            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
               AI Career Program
             </span>
           </h2>

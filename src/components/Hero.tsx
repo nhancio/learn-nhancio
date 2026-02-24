@@ -5,7 +5,7 @@ import { ArrowRight, Download, Play } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-nhancio-950">
       {/* Animated background with image */}
       <div className="absolute inset-0">
         <img 
@@ -16,11 +16,11 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-indigo-900/85"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 to-nhancio-900/85"></div>
       
       {/* Floating elements */}
       <motion.div
-        className="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl"
+        className="absolute top-20 left-10 w-20 h-20 bg-teal-400/20 rounded-full blur-xl"
         animate={{
           y: [0, -20, 0],
           scale: [1, 1.1, 1],
@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
       />
       
       <motion.div
-        className="absolute bottom-20 right-10 w-32 h-32 bg-purple-400/20 rounded-full blur-xl"
+        className="absolute bottom-20 right-10 w-32 h-32 bg-teal-500/20 rounded-full blur-xl"
         animate={{
           y: [0, 20, 0],
           scale: [1, 0.9, 1],
@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
         >
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Upskill in AI to Get Your
-            <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
               Dream Job in 30 Days
             </span>
           </h1>
@@ -65,8 +65,8 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Join <span className="text-blue-400 font-semibold">10,000+</span> professionals who have landed their 
-            <span className="text-purple-400 font-semibold"> dream jobs</span> using AI skills
+            Join <span className="text-teal-400 font-semibold">10,000+</span> professionals who have landed their
+            <span className="text-emerald-400 font-semibold"> dream jobs</span> using AI skills
           </motion.p>
           
           <motion.div
@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
           >
             <Link
               to="/courses"
-              className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center gap-3"
+              className="group bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center gap-3"
             >
               Start
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div className="flex items-center gap-2">
-              <Play className="w-4 h-4 text-blue-400" />
+              <Play className="w-4 h-4 text-teal-400" />
               <span>Watch Preview</span>
             </div>
             <div className="w-1 h-1 bg-gray-400 rounded-full"></div>

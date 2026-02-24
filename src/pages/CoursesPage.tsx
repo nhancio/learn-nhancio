@@ -87,7 +87,7 @@ const CoursesPage: React.FC = () => {
         address: 'Learn.Nhancio Workshop Purchase',
       },
       theme: {
-        color: '#3b82f6',
+        color: '#14b8a6',
       },
       modal: {
         ondismiss: function() {
@@ -161,10 +161,10 @@ const CoursesPage: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-8 sm:mb-16 px-2"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
             Our Workshop
           </h1>
-          <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Transform your career with our comprehensive AI upskill workshop
           </p>
         </motion.div>
@@ -175,16 +175,16 @@ const CoursesPage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-slate-800 rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 max-w-4xl w-full"
+            className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-teal-300 transition-all duration-300 hover:shadow-lg shadow-md max-w-4xl w-full"
           >
             {/* Workshop Image */}
-            <div className="h-80 bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center relative">
+            <div className="h-80 bg-gradient-to-br from-teal-500/20 to-teal-600/20 flex items-center justify-center relative">
               <div className="text-center">
-                <Zap className="w-24 h-24 text-blue-400 mx-auto mb-6" />
-                <h3 className="text-3xl font-bold text-white mb-2">{course.title}</h3>
-                <p className="text-gray-300 text-lg max-w-2xl mx-auto">{course.description}</p>
+                <Zap className="w-24 h-24 text-teal-400 mx-auto mb-6" />
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">{course.title}</h3>
+                <p className="text-gray-600 text-lg max-w-2xl mx-auto">{course.description}</p>
               </div>
-              <div className="absolute top-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+              <div className="absolute top-6 right-6 bg-teal-500 text-white px-4 py-2 rounded-full text-sm font-medium">
                 {course.category}
               </div>
             </div>
@@ -194,11 +194,11 @@ const CoursesPage: React.FC = () => {
 
               {/* Features */}
               <div className="mb-8">
-                <h4 className="text-xl font-semibold text-white mb-4">What you'll get:</h4>
+                <h4 className="text-xl font-semibold text-gray-900 mb-4">What you'll get:</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {course.features.map((feature, i) => (
-                    <div key={i} className="flex items-center text-gray-300">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                    <div key={i} className="flex items-center text-gray-600">
+                      <div className="w-2 h-2 bg-teal-400 rounded-full mr-3"></div>
                       {feature}
                     </div>
                   ))}
@@ -206,17 +206,17 @@ const CoursesPage: React.FC = () => {
               </div>
 
               {/* Price and CTA */}
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 bg-slate-700 rounded-xl">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 bg-gray-100 rounded-xl">
                 <div className="text-center md:text-left">
-                  <div className="text-sm text-gray-400 line-through mb-1">{course.originalPrice}</div>
-                  <div className="text-4xl font-bold text-white mb-2">{course.price}</div>
+                  <div className="text-sm text-gray-500 line-through mb-1">{course.originalPrice}</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{course.price}</div>
                   <div className="text-green-400 text-sm font-medium">Limited Slots Available</div>
                 </div>
                 <div className="w-full md:w-auto">
                   <button
                     onClick={handlePayment}
                     disabled={isProcessingPayment}
-                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 text-base sm:text-lg flex items-center justify-center space-x-2 min-h-[44px] disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:from-teal-600 hover:to-teal-700 transition-all duration-200 text-base sm:text-lg flex items-center justify-center space-x-2 min-h-[44px] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isProcessingPayment ? (
                       <>
@@ -243,30 +243,30 @@ const CoursesPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <h2 className="text-3xl font-bold text-white mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">
             Why Choose This Workshop?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md">
+              <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Expert-Led</h3>
-              <p className="text-gray-300">Learn from IIT alumni and industry experts with real-world experience</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert-Led</h3>
+              <p className="text-gray-600">Learn from IIT alumni and industry experts with real-world experience</p>
             </div>
-            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md">
+              <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Community</h3>
-              <p className="text-gray-300">Join a community of learners and professionals</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Community</h3>
+              <p className="text-gray-600">Join a community of learners and professionals</p>
             </div>
-            <div className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md">
+              <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Practical</h3>
-              <p className="text-gray-300">Hands-on projects that you can immediately apply in your work</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Practical</h3>
+              <p className="text-gray-600">Hands-on projects that you can immediately apply in your work</p>
             </div>
           </div>
         </motion.div>

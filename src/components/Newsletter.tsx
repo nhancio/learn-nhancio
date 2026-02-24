@@ -42,7 +42,7 @@ const Newsletter: React.FC = () => {
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Stay Ahead with
-            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
               AI Career Weekly
             </span>
           </h2>
@@ -59,9 +59,9 @@ const Newsletter: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-xl flex items-center justify-center">
                   <Zap className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -72,7 +72,7 @@ const Newsletter: React.FC = () => {
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <TrendingUp className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <TrendingUp className="w-5 h-5 text-teal-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-semibold text-gray-900">Latest Career Trends</div>
                     <div className="text-sm text-gray-600">Stay updated with job market developments</div>
@@ -80,7 +80,7 @@ const Newsletter: React.FC = () => {
                 </div>
                 
                 <div className="flex items-start gap-3">
-                  <BookOpen className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <BookOpen className="w-5 h-5 text-teal-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-semibold text-gray-900">AI Tool Reviews & Tutorials</div>
                     <div className="text-sm text-gray-600">In-depth analysis of career-boosting AI tools</div>
@@ -88,7 +88,7 @@ const Newsletter: React.FC = () => {
                 </div>
                 
                 <div className="flex items-start gap-3">
-                  <Zap className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <Zap className="w-5 h-5 text-teal-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-semibold text-gray-900">Career Advancement Tips</div>
                     <div className="text-sm text-gray-600">Actionable strategies to boost your career</div>
@@ -101,11 +101,11 @@ const Newsletter: React.FC = () => {
                   <input
                     type="email"
                     placeholder="Enter your email address"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-colors"
                   />
                 </div>
                 
-                <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                <button className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
                   Subscribe for Free
                 </button>
               </form>
@@ -146,14 +146,14 @@ const Newsletter: React.FC = () => {
                     
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
+                        <span className="text-xs font-semibold text-teal-600 bg-teal-50 px-2 py-1 rounded-full">
                           {article.category}
                         </span>
                         <span className="text-xs text-gray-500">•</span>
                         <span className="text-xs text-gray-500">{article.readTime}</span>
                       </div>
                       
-                      <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2">
+                      <h4 className="font-semibold text-gray-900 group-hover:text-teal-600 transition-colors line-clamp-2 mb-2">
                         {article.title}
                       </h4>
                       

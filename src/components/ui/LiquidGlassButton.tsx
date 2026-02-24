@@ -3,7 +3,7 @@ import { cn } from "../../lib/utils"
 
 const liquidbuttonVariants = {
   default: "bg-transparent hover:scale-105 duration-300 transition text-white",
-  primary: "bg-gradient-to-r from-blue-500/20 to-blue-600/20 hover:from-blue-500/30 hover:to-blue-600/30 text-white",
+  primary: "bg-gradient-to-r from-teal-500/20 to-teal-600/20 hover:from-teal-500/30 hover:to-teal-600/30 text-white",
 }
 
 interface LiquidGlassButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -66,7 +66,7 @@ export function LiquidGlassButton({
     <>
       <button
         className={cn(
-          "relative inline-flex items-center justify-center cursor-pointer gap-2 whitespace-nowrap rounded-xl font-medium transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:ring-offset-2",
+          "relative inline-flex items-center justify-center cursor-pointer gap-2 whitespace-nowrap rounded-xl font-medium transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50 focus-visible:ring-offset-2",
           liquidbuttonVariants[variant],
           sizeVariants[size],
           className

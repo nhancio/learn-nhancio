@@ -19,22 +19,22 @@ const LoginPage: React.FC = () => {
               alt="Nhancio Logo" 
               className="h-12 w-auto"
             />
-                    <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                    <span className="text-2xl font-bold bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-transparent">
                       Learn.Nhancio
                     </span>
           </Link>
           
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
             Registration Closed
           </h2>
-          <p className="text-gray-400 text-base mb-6">
+          <p className="text-gray-600 text-base mb-6">
             Registration for this course is currently closed. Please check back later or contact us for more information.
           </p>
           
           <div className="space-y-4">
             <Link
               to="/"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 min-h-[44px]"
+              className="inline-flex items-center space-x-2 bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-teal-700 transition-all duration-200 min-h-[44px]"
             >
               <span>Back to Home</span>
               <ArrowRight className="w-4 h-4" />

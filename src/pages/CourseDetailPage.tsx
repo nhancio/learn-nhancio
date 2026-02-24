@@ -147,7 +147,7 @@ const CourseDetailPage: React.FC = () => {
         address: 'Learn.Nhancio Workshop Purchase',
       },
       theme: {
-        color: '#3b82f6',
+        color: '#14b8a6',
       },
       modal: {
         ondismiss: function() {
@@ -224,10 +224,10 @@ const CourseDetailPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Workshop Info */}
             <div className="lg:col-span-2">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 {course.title}
               </h1>
-              <p className="text-xl text-gray-300 mb-6">
+              <p className="text-xl text-gray-600 mb-6">
                 {course.description}
               </p>
               
@@ -235,44 +235,44 @@ const CourseDetailPage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-6 mb-6">
                 <div className="flex items-center space-x-2">
                   <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                  <span className="text-white font-medium">{course.rating}</span>
-                  <span className="text-gray-400">({course.students} students)</span>
+                  <span className="text-gray-900 font-medium">{course.rating}</span>
+                  <span className="text-gray-600">({course.students} students)</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Clock className="w-5 h-5 text-blue-400" />
-                  <span className="text-gray-300">{course.duration}</span>
+                  <Clock className="w-5 h-5 text-teal-400" />
+                  <span className="text-gray-600">{course.duration}</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Users className="w-5 h-5 text-blue-400" />
-                  <span className="text-gray-300">{course.students.toLocaleString()} enrolled</span>
+                  <Users className="w-5 h-5 text-teal-500" />
+                  <span className="text-gray-600">{course.students.toLocaleString()} enrolled</span>
                 </div>
               </div>
 
               {/* Instructor */}
               <div className="flex items-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center">
                   <span className="text-white font-bold">S</span>
                 </div>
                 <div>
-                  <div className="text-white font-semibold">{course.instructor}</div>
-                  <div className="text-gray-400">{course.instructorTitle}</div>
+                  <div className="text-gray-900 font-semibold">{course.instructor}</div>
+                  <div className="text-gray-600">{course.instructorTitle}</div>
                 </div>
               </div>
             </div>
 
             {/* Workshop Card */}
             <div className="lg:col-span-1">
-              <div className="bg-slate-800 rounded-2xl p-6 border border-blue-500/20 sticky top-24">
+              <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-md sticky top-24">
                 <div className="text-center mb-6">
-                  <div className="text-sm text-gray-400 line-through mb-1">{course.originalPrice}</div>
-                  <div className="text-3xl font-bold text-white mb-2">{course.price}</div>
-                  <div className="text-gray-400">One-time payment</div>
+                  <div className="text-sm text-gray-500 line-through mb-1">{course.originalPrice}</div>
+                  <div className="text-3xl font-bold text-gray-900 mb-2">{course.price}</div>
+                  <div className="text-gray-600">One-time payment</div>
                 </div>
 
                 <button
                   onClick={handlePayment}
                   disabled={isProcessingPayment}
-                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 sm:py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 mb-3 sm:mb-4 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white py-3 sm:py-3 rounded-xl font-semibold hover:from-teal-600 hover:to-teal-700 transition-all duration-200 mb-3 sm:mb-4 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isProcessingPayment ? (
                     <>
@@ -287,22 +287,22 @@ const CourseDetailPage: React.FC = () => {
                   )}
                 </button>
 
-                <button className="w-full bg-slate-700 text-white py-3 rounded-xl font-semibold hover:bg-slate-600 transition-all duration-200 mb-3 sm:mb-4 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base">
+                <button className="w-full bg-gray-100 text-gray-800 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-200 mb-3 sm:mb-4 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base">
                   <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Download Syllabus</span>
                 </button>
 
-                <button className="w-full bg-slate-700 text-white py-3 rounded-xl font-semibold hover:bg-slate-600 transition-all duration-200 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base">
+                <button className="w-full bg-gray-100 text-gray-800 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-200 flex items-center justify-center space-x-2 min-h-[44px] text-sm sm:text-base">
                   <Share2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>Share Workshop</span>
                 </button>
 
-                <div className="mt-6 pt-6 border-t border-blue-500/20">
-                  <h4 className="text-white font-semibold mb-3">What's included:</h4>
+                <div className="mt-6 pt-6 border-t border-gray-200">
+                  <h4 className="text-gray-900 font-semibold mb-3">What's included:</h4>
                   <ul className="space-y-2">
                     {course.features.map((feature, index) => (
-                      <li key={index} className="flex items-center text-gray-300 text-sm">
-                        <CheckCircle className="w-4 h-4 text-blue-400 mr-2 flex-shrink-0" />
+                      <li key={index} className="flex items-center text-gray-600 text-sm">
+                        <CheckCircle className="w-4 h-4 text-teal-400 mr-2 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -320,20 +320,20 @@ const CourseDetailPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-12"
         >
-          <h2 className="text-3xl font-bold text-white mb-8">Workshop Curriculum</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Workshop Curriculum</h2>
           <div className="space-y-4">
             {course.curriculum.map((week) => (
-              <div key={week.week} className="bg-slate-800 rounded-2xl p-6 border border-blue-500/20">
+              <div key={week.week} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-md">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-gray-900">
                     Week {week.week}: {week.title}
                   </h3>
-                  <span className="text-blue-400 font-medium">4 hours</span>
+                  <span className="text-teal-600 font-medium">4 hours</span>
                 </div>
                 <ul className="space-y-2">
                   {week.topics.map((topic, topicIndex) => (
-                    <li key={topicIndex} className="flex items-center text-gray-300">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                    <li key={topicIndex} className="flex items-center text-gray-600">
+                      <div className="w-2 h-2 bg-teal-400 rounded-full mr-3"></div>
                       {topic}
                     </li>
                   ))}
@@ -349,18 +349,18 @@ const CourseDetailPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <h2 className="text-3xl font-bold text-white mb-8">Student Reviews</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Student Reviews</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {course.reviews.map((review, reviewIndex) => (
-              <div key={review.id || reviewIndex} className="bg-slate-800 p-6 rounded-2xl border border-blue-500/20">
+              <div key={review.id || reviewIndex} className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold">{review.name.charAt(0)}</span>
                     </div>
                     <div>
-                      <div className="text-white font-semibold">{review.name}</div>
-                      <div className="text-gray-400 text-sm">{review.date}</div>
+                      <div className="text-gray-900 font-semibold">{review.name}</div>
+                      <div className="text-gray-500 text-sm">{review.date}</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-1">
@@ -369,7 +369,7 @@ const CourseDetailPage: React.FC = () => {
                     ))}
                   </div>
                 </div>
-                <p className="text-gray-300">{review.comment}</p>
+                <p className="text-gray-600">{review.comment}</p>
               </div>
             ))}
           </div>
@@ -382,17 +382,17 @@ const CourseDetailPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8">
+          <div className="bg-gradient-to-r from-teal-600 to-teal-800 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-white mb-4">
               Ready to Transform Your Career?
             </h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            <p className="text-teal-100 mb-6 max-w-2xl mx-auto">
               Join thousands of professionals who have already upgraded their skills with our AI upskill workshop.
             </p>
             <button
               onClick={handlePayment}
               disabled={isProcessingPayment}
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-white text-teal-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isProcessingPayment ? (
                 <>

@@ -16,10 +16,10 @@ const RefundPolicyPage: React.FC = () => {
           <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
             <AlertTriangle className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Refund Policy
           </h1>
-          <p className="text-xl text-gray-400">
+          <p className="text-xl text-gray-600">
             Last updated: January 2024
           </p>
         </motion.div>
@@ -36,7 +36,7 @@ const RefundPolicyPage: React.FC = () => {
               <XCircle className="w-6 h-6 text-red-400 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold text-red-400 mb-2">Important Notice</h3>
-                <p className="text-gray-300">
+                <p className="text-gray-600">
                   <strong>No refunds are provided for digital courses and workshops.</strong> Once you purchase and access our digital content, the transaction is final and non-refundable.
                 </p>
               </div>
@@ -51,9 +51,9 @@ const RefundPolicyPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="space-y-8"
         >
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">1. Digital Course Policy</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Digital Course Policy</h2>
+            <div className="space-y-4 text-gray-600">
               <p>Due to the digital nature of our courses and workshops, we have a strict no-refund policy. This includes:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>AI upskill Workshop and all digital content</li>
@@ -66,9 +66,9 @@ const RefundPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">2. Why No Refunds?</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Why No Refunds?</h2>
+            <div className="space-y-4 text-gray-600">
               <p>We implement a no-refund policy for the following reasons:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>Immediate Access:</strong> You gain instant access to all course materials upon purchase</li>
@@ -80,9 +80,9 @@ const RefundPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">3. Before You Purchase</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Before You Purchase</h2>
+            <div className="space-y-4 text-gray-600">
               <p>To ensure you make an informed decision, we encourage you to:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Read the course description thoroughly</li>
@@ -95,9 +95,9 @@ const RefundPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">4. Technical Issues</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Technical Issues</h2>
+            <div className="space-y-4 text-gray-600">
               <p>If you experience technical difficulties accessing the course:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Contact our support team immediately</li>
@@ -109,9 +109,9 @@ const RefundPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">5. Course Quality Guarantee</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Course Quality Guarantee</h2>
+            <div className="space-y-4 text-gray-600">
               <p>While we don't offer refunds, we do guarantee:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>High-quality, professionally developed content</li>
@@ -123,9 +123,9 @@ const RefundPolicyPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-800 p-8 rounded-lg border border-blue-500/20">
-            <h2 className="text-2xl font-bold text-white mb-4">6. Contact Information</h2>
-            <div className="space-y-4 text-gray-300">
+          <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Contact Information</h2>
+            <div className="space-y-4 text-gray-600">
               <p>If you have any questions about this refund policy, please contact us:</p>
               <div className="bg-slate-700 p-4 rounded-lg">
                 <p><strong>Email:</strong> hello@nhancio.com</p>
@@ -141,7 +141,7 @@ const RefundPolicyPage: React.FC = () => {
               <Info className="w-6 h-6 text-yellow-400 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-lg font-semibold text-yellow-400 mb-2">Final Notice</h3>
-                <p className="text-gray-300">
+                <p className="text-gray-600">
                   By purchasing any of our digital courses, you explicitly agree to this no-refund policy. 
                   Please ensure you are fully committed to the course before making your purchase.
                 </p>
