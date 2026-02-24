@@ -17,17 +17,15 @@ const Header: React.FC = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
 
-  const navPages = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
+  // Order: Home, Community, Workshops, Testimonials, Achievements, About Us, Join as a Mentor
+  const navItems = [
+    { type: 'link' as const, name: 'Home', href: '/' },
+    { type: 'scroll' as const, name: 'Community', id: 'community' },
+    { type: 'scroll' as const, name: 'Workshops', id: 'workshops' },
+    { type: 'scroll' as const, name: 'Testimonials', id: 'testimonials' },
+    { type: 'scroll' as const, name: 'Achievements', id: 'achievements' },
+    { type: 'link' as const, name: 'About Us', href: '/about' },
   ];
-  const scrollSections = [
-    { name: 'Workshops', id: 'workshops' },
-    { name: 'Community', id: 'community' },
-    { name: 'Testimonials', id: 'testimonials' },
-    { name: 'Achievements', id: 'achievements' },
-  ];
-
 
   return (
     <header className="bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-50 shadow-sm">
@@ -47,13 +45,12 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center flex-wrap gap-1 sm:gap-2">
-            {navPages.map((item) => (
-              <Link key={item.name} to={item.href} className={navLinkClass}>
-                {item.name}
-              </Link>
-            ))}
-            {scrollSections.map((item) =>
-              isHome ? (
+            {navItems.map((item) =>
+              item.type === 'link' ? (
+                <Link key={item.name} to={item.href} className={navLinkClass}>
+                  {item.name}
+                </Link>
+              ) : isHome ? (
                 <button
                   key={item.name}
                   type="button"
@@ -63,11 +60,7 @@ const Header: React.FC = () => {
                   {item.name}
                 </button>
               ) : (
-                <Link
-                  key={item.name}
-                  to={`/#${item.id}`}
-                  className={navLinkClass}
-                >
+                <Link key={item.name} to={`/#${item.id}`} className={navLinkClass}>
                   {item.name}
                 </Link>
               )
@@ -103,13 +96,12 @@ const Header: React.FC = () => {
             className="md:hidden bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto shadow-lg"
           >
             <div className="px-4 py-4 space-y-3">
-              {navPages.map((item) => (
-                <Link key={item.name} to={item.href} onClick={() => setIsMobileMenuOpen(false)} className={`block w-full text-center ${navLinkClass}`}>
-                  {item.name}
-                </Link>
-              ))}
-              {scrollSections.map((item) =>
-                isHome ? (
+              {navItems.map((item) =>
+                item.type === 'link' ? (
+                  <Link key={item.name} to={item.href} onClick={() => setIsMobileMenuOpen(false)} className={`block w-full text-center ${navLinkClass}`}>
+                    {item.name}
+                  </Link>
+                ) : isHome ? (
                   <button
                     key={item.name}
                     type="button"
