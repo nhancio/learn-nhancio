@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 declare global {
   interface Window {
@@ -8,32 +8,61 @@ declare global {
 
 const WORKSHOP_TITLE = 'AI upskill Workshop';
 const AMOUNT_PAISE = 49900; // ₹499
+const RAZORPAY_SCRIPT = 'https://checkout.razorpay.com/v1/checkout.js';
+
+function loadRazorpayScript(): Promise<void> {
+  if (typeof window !== 'undefined' && window.Razorpay) return Promise.resolve();
+  const existing = document.querySelector(`script[src="${RAZORPAY_SCRIPT}"]`);
+  if (existing) {
+    return new Promise((resolve) => {
+      const check = () => (window.Razorpay ? resolve() : setTimeout(check, 50));
+      check();
+    });
+  }
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = RAZORPAY_SCRIPT;
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error('Failed to load Razorpay'));
+    document.body.appendChild(script);
+  });
+}
 
 export function useWorkshopPayment() {
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
+  const scriptLoaded = useRef(false);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      if (document.body.contains(script)) document.body.removeChild(script);
-    };
+    loadRazorpayScript()
+      .then(() => { scriptLoaded.current = true; })
+      .catch(() => {});
   }, []);
 
-  const handlePayment = () => {
+  const handlePayment = async () => {
     setIsProcessingPayment(true);
+    setErrorMessage('');
+
     const razorpayKey = import.meta.env.VITE_RAZORPAY_KEY_ID;
-    if (!razorpayKey) {
-      setErrorMessage('Payment gateway configuration error. Please contact support.');
+    if (!razorpayKey || razorpayKey.trim() === '') {
+      setErrorMessage('Payment gateway is not configured. Please set VITE_RAZORPAY_KEY_ID in .env and try again.');
       setIsProcessingPayment(false);
       setShowErrorModal(true);
       return;
     }
+
+    try {
+      await loadRazorpayScript();
+    } catch {
+      setErrorMessage('Payment gateway could not be loaded. Check your connection and try again.');
+      setIsProcessingPayment(false);
+      setShowErrorModal(true);
+      return;
+    }
+
     const options = {
       key: razorpayKey,
       amount: AMOUNT_PAISE,
@@ -73,24 +102,19 @@ export function useWorkshopPayment() {
         },
       },
     };
+
     try {
-      if (window.Razorpay) {
-        const razorpay = new window.Razorpay(options);
-        razorpay.on('payment.failed', function (response: any) {
-          const errorMsg =
-            response.error?.description ||
-            response.error?.reason ||
-            'Payment could not be processed. Please try again.';
-          setErrorMessage(errorMsg);
-          setIsProcessingPayment(false);
-          setShowErrorModal(true);
-        });
-        razorpay.open();
-      } else {
-        setErrorMessage('Payment gateway is loading. Please wait a moment and try again.');
+      const razorpay = new window.Razorpay(options);
+      razorpay.on('payment.failed', function (response: any) {
+        const errorMsg =
+          response.error?.description ||
+          response.error?.reason ||
+          'Payment could not be processed. Please try again.';
+        setErrorMessage(errorMsg);
         setIsProcessingPayment(false);
         setShowErrorModal(true);
-      }
+      });
+      razorpay.open();
     } catch (error) {
       setErrorMessage(
         error instanceof Error ? error.message : 'An unexpected error occurred. Please try again.'

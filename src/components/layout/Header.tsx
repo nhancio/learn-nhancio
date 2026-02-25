@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import MentorFormModal from '../MentorFormModal';
 
 const navLinkClass = "relative inline-flex items-center justify-center cursor-pointer gap-2 whitespace-nowrap rounded-2xl font-semibold text-sm sm:text-base px-4 sm:px-5 py-2.5 sm:py-3 transition-all duration-300 hover:scale-105 bg-white/80 hover:bg-white text-gray-700 hover:text-teal-600 border border-gray-200 hover:border-teal-400/50 shadow-sm";
 
@@ -13,7 +12,6 @@ function scrollToSection(id: string) {
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMentorModalOpen, setIsMentorModalOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
 
@@ -28,7 +26,7 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <header className="sticky top-0 z-[100] bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 sm:h-24">
           {/* Logo */}
@@ -65,13 +63,12 @@ const Header: React.FC = () => {
                 </Link>
               )
             )}
-            <button
-              type="button"
-              onClick={() => { setIsMentorModalOpen(true); setIsMobileMenuOpen(false); }}
+            <Link
+              to="/join-as-mentor"
               className="ml-1 rounded-2xl font-semibold text-xs sm:text-sm px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-600 hover:to-teal-700 transition-all duration-300 border border-teal-400/50 whitespace-nowrap"
             >
               Join as a Mentor
-            </button>
+            </Link>
           </nav>
 
 
@@ -116,18 +113,17 @@ const Header: React.FC = () => {
                   </Link>
                 )
               )}
-              <button
-                type="button"
-                onClick={() => { setIsMentorModalOpen(true); setIsMobileMenuOpen(false); }}
-                className="w-full rounded-2xl font-semibold text-base py-4 px-6 bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-600 hover:to-teal-700 transition-all border border-teal-400/50"
+              <Link
+                to="/join-as-mentor"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full rounded-2xl font-semibold text-base py-4 px-6 bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-600 hover:to-teal-700 transition-all border border-teal-400/50 text-center block"
               >
                 Join as a Mentor
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-      <MentorFormModal isOpen={isMentorModalOpen} onClose={() => setIsMentorModalOpen(false)} />
     </header>
   );
 };

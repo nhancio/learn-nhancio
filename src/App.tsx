@@ -24,7 +24,7 @@ import ContactUsPage from './pages/ContactUsPage';
 import WebinarDetailPage from './pages/WebinarDetailPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import AchievementsPage from './pages/AchievementsPage';
-
+import JoinAsMentorPage from './pages/JoinAsMentorPage';
 
 // Create a client
 const queryClient = new QueryClient({
@@ -63,6 +63,7 @@ function App() {
               <Route path="/webinar/:slug" element={<WebinarDetailPage />} />
               <Route path="/testimonials" element={<TestimonialsPage />} />
               <Route path="/achievements" element={<AchievementsPage />} />
+              <Route path="/join-as-mentor" element={<JoinAsMentorPage />} />
             </Routes>
           </main>
           <Footer />

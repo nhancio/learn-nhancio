@@ -138,9 +138,9 @@ const CoursesPage: React.FC = () => {
         });
         razorpay.open();
       } else {
-        console.error('Razorpay SDK not loaded. Waiting for script to load...');
-        alert('Payment gateway is loading. Please wait a moment and try again.');
+        setErrorMessage('Payment gateway is still loading. Please wait a moment and try again.');
         setIsProcessingPayment(false);
+        setShowErrorModal(true);
       }
     } catch (error) {
       console.error('Payment error:', error);

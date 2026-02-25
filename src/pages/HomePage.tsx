@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Star, Users, CheckCircle, TrendingUp, Award } from 'lucide-react';
-import HeroCarousel from '../components/HeroCarousel';
+import { ArrowRight, Play, Star, CheckCircle, TrendingUp, Award, ChevronDown } from 'lucide-react';
 import PaymentSuccessModal from '../components/PaymentSuccessModal';
 import PaymentErrorModal from '../components/PaymentErrorModal';
 import { useWorkshopPayment } from '../hooks/useWorkshopPayment';
@@ -101,6 +100,7 @@ const HomePage: React.FC = () => {
     }
   ];
 
+  const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(null);
   const location = useLocation();
   useEffect(() => {
     const hash = location.hash?.slice(1);
@@ -114,8 +114,137 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Carousel - 3 slides with taglines; CTA opens Razorpay */}
-      <HeroCarousel onCtaClick={handlePayment} />
+      {/* Hero: single CTA - Claim Your Spot */}
+      <section className="relative py-20 sm:py-28 flex items-center justify-center overflow-hidden">
+        <img src="/images/1.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+          >
+            Claim Your Spot
+          </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-gray-200 text-base sm:text-lg mb-2 space-y-1"
+          >
+            <p>3 Hours Live Workshop</p>
+            <p>25 February 2026 · 6:00 PM IST</p>
+            <p className="text-sm text-gray-300">Limited seats available</p>
+          </motion.div>
+          <motion.button
+            type="button"
+            onClick={handlePayment}
+            disabled={isProcessingPayment}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-8 inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:from-teal-600 hover:to-teal-700 transition-all duration-200 shadow-lg hover:shadow-teal-500/25 disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            {isProcessingPayment ? (
+              <span className="animate-spin">⏳</span>
+            ) : (
+              <>
+                Claim Your Spot
+                <ArrowRight className="w-5 h-5" />
+              </>
+            )}
+          </motion.button>
+        </div>
+      </section>
+
+      {/* What You'll Learn */}
+      <section id="what-you-learn" className="py-14 sm:py-20 bg-white scroll-mt-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center"
+          >
+            What You'll Learn
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12"
+          >
+            {[
+              'AI Agents',
+              'Context Engineering',
+              'Deployment Strategies',
+              'Tools Ecosystem',
+              'System Design Thinking',
+              'Production-ready workflows',
+            ].map((item, i) => (
+              <div key={item} className="flex items-center gap-3 rounded-xl border border-gray-200 bg-gray-50 px-5 py-4">
+                <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0" />
+                <span className="text-gray-800 font-medium">{item}</span>
+              </div>
+            ))}
+          </motion.div>
+          <motion.h3
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xl font-semibold text-gray-900 mb-6 text-center"
+          >
+            Frameworks you'll explore
+          </motion.h3>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-4"
+          >
+            {[
+              { name: 'LangChain', desc: 'Build and orchestrate LLM applications' },
+              { name: 'LlamaIndex', desc: 'Data frameworks for LLMs' },
+              { name: 'FastAPI', desc: 'Production APIs for AI services' },
+              { name: 'Streamlit', desc: 'Quick prototypes and dashboards' },
+            ].map((fw) => (
+              <div key={fw.name} className="rounded-xl border border-gray-200 bg-white p-5 text-center shadow-sm">
+                <div className="font-semibold text-gray-900 mb-1">{fw.name}</div>
+                <p className="text-sm text-gray-600">{fw.desc}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Tools You'll Work With */}
+      <section className="py-14 sm:py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-10 text-center"
+          >
+            Tools You'll Work With
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto"
+          >
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="text-2xl font-bold text-gray-900 mb-2">Docker</div>
+              <p className="text-gray-600">Containerize and run your AI apps consistently across environments. Industry standard for deployment.</p>
+            </div>
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="text-2xl font-bold text-gray-900 mb-2">LangSmith</div>
+              <p className="text-gray-600">Trace, debug, and evaluate LLM pipelines. Real-world observability for production AI systems.</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Community Channels - scroll target for nav */}
       <section id="community" className="py-14 sm:py-20 md:py-24 scroll-mt-24 bg-white">
@@ -448,6 +577,104 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Meet your Mentor */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 sm:mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+              Meet your Mentor
+            </h2>
+            <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
+              Learn from industry experts who are here to guide your AI journey
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start"
+          >
+            {/* Left: Mentor profile card */}
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-md overflow-hidden p-6 sm:p-8 flex flex-col items-center text-center lg:items-center lg:text-center">
+              <div className="w-full max-w-sm">
+                <div className="aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 mb-6">
+                  <img
+                    src="/images/chaitanya.jpeg"
+                    alt="Chaitanya"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">Chaitanya</h3>
+                <p className="text-gray-600 text-base sm:text-lg">Mentor, AI upskill Workshop</p>
+              </div>
+            </div>
+
+            {/* Right: Bio, experience bullets, social stats */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-1">Chaitanya</h3>
+              <p className="text-gray-600 text-base mb-6">Mentor, AI upskill Workshop</p>
+              <p className="text-gray-700 text-lg sm:text-xl mb-6 leading-relaxed">
+                Hey Folks, I'm Chaitanya, and I'm super excited to be your mentor for this workshop.
+              </p>
+              <ul className="space-y-2 mb-6 text-gray-600">
+                {[
+                  'Years of experience building and scaling AI products and teams',
+                  'Hands-on ML and product leadership in real-world environments',
+                  'Focus on practical implementation and systems-level thinking',
+                  'Track record of guiding learners from theory to production',
+                  'Strong emphasis on deployment and production-ready workflows',
+                  'Real-world project exposure across startups and scale-ups',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
+                <p>
+                  In this workshop we'll focus on practical skills you can use immediately—whether you're
+                  upskilling for your current role or preparing for your next one. I'm here to share everything
+                  I've learned with you.
+                </p>
+              </div>
+              {/* Social / stats blocks */}
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-4">
+                <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3 min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-800 font-medium text-sm sm:text-base truncate">LinkedIn</span>
+                </div>
+                <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3 min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-800 font-medium text-sm sm:text-base truncate">Twitter / X</span>
+                </div>
+                <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3 min-w-0">
+                  <div className="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-5 h-5 text-teal-600" />
+                  </div>
+                  <span className="text-gray-800 font-medium text-sm sm:text-base truncate">Expert Mentor</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Testimonials - scroll target for nav */}
       <section id="testimonials" className="py-12 sm:py-16 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -459,7 +686,7 @@ const HomePage: React.FC = () => {
             className="text-center mb-8 sm:mb-12"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
-              What Our Students Say
+              What Participants Say
             </h2>
             <p className="text-base sm:text-xl text-gray-600">
               Join thousands of successful learners
@@ -474,11 +701,11 @@ const HomePage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gray-50 p-6 rounded-2xl border border-gray-200 hover:border-teal-500/30 transition-colors"
+                className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:border-teal-500/30 transition-colors"
               >
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center mr-4">
-                    <Users className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center mr-4 text-white font-bold">
+                    {testimonial.name.charAt(0)}
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">{testimonial.name}</div>
@@ -491,6 +718,120 @@ const HomePage: React.FC = () => {
                     <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                   ))}
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Who Is This Workshop For */}
+      <section className="py-14 sm:py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-10 text-center"
+          >
+            Who Is This Workshop For?
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm"
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Students</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+                  Want a structured introduction to AI
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+                  Prefer hands-on learning over theory overload
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+                  Want a take-home project to showcase
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+                  Looking for practical exposure, not just concepts
+                </li>
+              </ul>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm"
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Working Professionals</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+                  Looking to switch or transition into AI roles
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+                  Want clarity on tools, systems, and workflows
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+                  Need a structured learning roadmap
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+                  Want real-world workflow understanding
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-14 sm:py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-10 text-center"
+          >
+            Frequently Asked Questions
+          </motion.h2>
+          <div className="space-y-3">
+            {[
+              { q: 'Is prior knowledge required?', a: 'Yes, basic Python knowledge is mandatory.' },
+              { q: 'Is this beginner friendly?', a: 'Yes, but coding familiarity is required.' },
+              { q: 'Will there be hands-on coding?', a: 'Yes.' },
+              { q: 'Will recording be provided?', a: 'Recording policy will be shared before the workshop.' },
+              { q: 'Will there be a project?', a: 'Yes, a take-home project is included.' },
+              { q: 'What do I need installed?', a: 'Python, Docker, and a code editor (e.g. VS Code).' },
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="rounded-xl border border-gray-200 bg-gray-50/50 overflow-hidden"
+              >
+                <button
+                  type="button"
+                  onClick={() => setFaqOpenIndex(faqOpenIndex === index ? null : index)}
+                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-gray-900 hover:bg-gray-100/80 transition-colors"
+                >
+                  {faq.q}
+                  <ChevronDown className={`w-5 h-5 flex-shrink-0 transition-transform ${faqOpenIndex === index ? 'rotate-180' : ''}`} />
+                </button>
+                {faqOpenIndex === index && (
+                  <div className="px-5 pb-4 pt-0 text-gray-600 border-t border-gray-200/80">
+                    {faq.a}
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -539,7 +880,7 @@ const HomePage: React.FC = () => {
 
       {/* CTA Section */}
       <section className="py-12 sm:py-16 bg-gradient-to-r from-teal-600 to-teal-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -556,7 +897,7 @@ const HomePage: React.FC = () => {
               type="button"
               onClick={handlePayment}
               disabled={isProcessingPayment}
-              className="bg-white text-teal-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center space-x-2 min-h-[44px] disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto max-w-md mx-auto bg-white text-teal-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-gray-100 transition-all duration-200 inline-flex items-center justify-center space-x-2 min-h-[44px] disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isProcessingPayment ? (
                 <span className="animate-spin">⏳</span>
