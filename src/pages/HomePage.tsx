@@ -607,30 +607,29 @@ const HomePage: React.FC = () => {
                 <div className="aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 mb-6">
                   <img
                     src="/images/chaitanya.jpeg"
-                    alt="Chaitanya"
+                    alt="Shree Chaithanya L"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">Chaitanya</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">Shree Chaithanya L</h3>
                 <p className="text-gray-600 text-base sm:text-lg">Mentor, AI upskill Workshop</p>
               </div>
             </div>
 
             {/* Right: Bio, experience bullets, social stats */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-1">Chaitanya</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-1">Shree Chaithanya L</h3>
               <p className="text-gray-600 text-base mb-6">Mentor, AI upskill Workshop</p>
               <p className="text-gray-700 text-lg sm:text-xl mb-6 leading-relaxed">
-                Hey Folks, I'm Chaitanya, and I'm super excited to be your mentor for this workshop.
+                Hey everyone, I'm Shree Chaithanya L, and I'm thrilled to be your mentor for this workshop.
               </p>
               <ul className="space-y-2 mb-6 text-gray-600">
                 {[
-                  'Years of experience building and scaling AI products and teams',
-                  'Hands-on ML and product leadership in real-world environments',
-                  'Focus on practical implementation and systems-level thinking',
-                  'Track record of guiding learners from theory to production',
-                  'Strong emphasis on deployment and production-ready workflows',
-                  'Real-world project exposure across startups and scale-ups',
+                  'Co-founder of Keplr — led a 6-member team to boost conversions by 34% and generate 180K page visits in the first month through our SEO agent',
+                  'Founder of Hireneu — an AI job board that reduced recruiter workload by 80% in beta',
+                  'Creator of Graph of Drafts (GoD), an open-sourced LLM reasoning framework',
+                  'Data/AI Engineer at Iksana Integrated Health, Bengaluru — building production RAG systems and health agents',
+                  'IIT Madras',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
@@ -638,13 +637,9 @@ const HomePage: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
-                <p>
-                  In this workshop we'll focus on practical skills you can use immediately—whether you're
-                  upskilling for your current role or preparing for your next one. I'm here to share everything
-                  I've learned with you.
-                </p>
-              </div>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Excited to share everything I've learned building real-world AI startups and frameworks. Let's dive in and build! 🚀
+              </p>
               {/* Social / stats blocks */}
               <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-4">
                 <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-gray-50/80 px-4 py-3 min-w-0">
